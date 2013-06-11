@@ -1,3 +1,7 @@
+
+var NODES_PER_LAYER = 6;
+
+
 var Renderer = function(canvas){
     var canvas = $(canvas).get(0);
     var ctx = canvas.getContext("2d");
@@ -147,9 +151,12 @@ $(document).ready(function(){
     });
 
     $.getJSON("./data/targetnodes.json", function(data){
-        $.each(data.success, function(i, v){
-            sys.addNode(i, v.article);
-            sys.addEdge('centerNode', i, v.connection);
-        });
+        console.log("message");
+        var toTake = data.success.length;
+        if(toTake > NODES_PER_LAYER) { toTake = NODES_PER_LAYER; }
+        for ( var i=0; i < toTake; i++){
+            sys.addNode(i, data.success[i].article);
+            sys.addEdge('centerNode', i, data.success[i].connection);
+        }
     });
 });
