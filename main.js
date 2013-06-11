@@ -48,8 +48,13 @@ var Renderer = function(canvas){
                 // pt1:  {x:#, y:#}  source position in screen coords
                 // pt2:  {x:#, y:#}  target position in screen coords
 
+                var edgeAlpha = edge.source.data.alpha;
+                if(edge.target.data.alpha < edgeAlpha) {edgeAlpha = edge.target.data.alpha;}
+
+                if (edgeAlpha === 0) return
+
                 // draw a line from pt1 to pt2
-                ctx.strokeStyle = "rgba(255,255,255, .8)";
+                ctx.strokeStyle = "rgba(255,255,255, "+edgeAlpha+")";
                 ctx.lineWidth = 2;
                 ctx.beginPath();
                 ctx.moveTo(pt1.x, pt1.y);
@@ -78,7 +83,7 @@ var Renderer = function(canvas){
                 ctx.stroke();
 
                 //Print text next to it
-                ctx.fillStyle = "white";
+                ctx.fillStyle = "rgba(255,255,255, "+node.data.alpha+")";
                 ctx.font = "bold 12px Roboto";
                 ctx.fillText(node.data.title, pt.x + 30, pt.y);
                 
