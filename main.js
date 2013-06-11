@@ -26,6 +26,8 @@ var Renderer = function(canvas){
 
             // set up some event handlers to allow for node-dragging
             that.initMouseHandling()
+
+            //that.initLayers()
         },
 
         redraw:function(){
@@ -38,8 +40,8 @@ var Renderer = function(canvas){
             // which allow you to step through the actual node objects but also pass an
             // x,y point in the screen's coordinate system
             //
-            ctx.fillStyle = "black"
-            ctx.fillRect(0,0, canvas.width, canvas.height)
+            ctx.fillStyle = "black";
+            ctx.fillRect(0,0, canvas.width, canvas.height);
 
             particleSystem.eachEdge(function(edge, pt1, pt2){
                 // edge: {source:Node, target:Node, length:#, data:{}}
@@ -51,7 +53,7 @@ var Renderer = function(canvas){
                 ctx.lineWidth = 2;
                 ctx.beginPath();
                 ctx.moveTo(pt1.x, pt1.y);
-                ctx.lineTo(pt2.x, pt2.y);
+                ctx.lineTo(pt2.x, pt2.y);//, {alpha: 0});
                 ctx.stroke();
             })
 
@@ -60,10 +62,14 @@ var Renderer = function(canvas){
                 // pt:   {x:#, y:#}  node position in screen coords
 
                 //Draw Hexagon centered at pt
-                ctx.beginPath();
-                ctx.strokeStyle = "white";
+                ctx.beginPath({alpha: 0});
+
+                ctx.alpha = 0;
+                ctx.strokeStyle = "rgba(255,255,255, "+node.data.alpha+")";
                 ctx.lineWidth = 5;
-                ctx.fillStyle= "black";
+                var fillAlpha = 1;
+                if (node.data.alpha === 0) {fillAlpha = 0;}
+                ctx.fillStyle= "rgba(0,0,0, "+fillAlpha+")";
                 ctx.moveTo(shape[0][0] + pt.x, shape[0][1] + pt.y);
                 for(var i = 1; i < shape.length; i++)
                     ctx.lineTo(shape[i][0] + pt.x, shape[i][1] + pt.y);
@@ -75,6 +81,7 @@ var Renderer = function(canvas){
                 ctx.fillStyle = "white";
                 ctx.font = "bold 12px Roboto";
                 ctx.fillText(node.data.title, pt.x + 30, pt.y);
+                
             })
         },
 
@@ -99,6 +106,9 @@ var Renderer = function(canvas){
                     $(canvas).bind('mousemove', handler.dragged)
                     $(window).bind('mouseup', handler.dropped)
                     */
+                    var randomLayer = Math.floor(Math.random()*3);
+                    //$(that).trigger({type:'layer', layer: randomLayer, dt:'fast'});
+                    $(that).trigger({type:'layer', layer: randomLayer, dt:'fast'});
                     return false
                 },
 
@@ -133,11 +143,34 @@ var Renderer = function(canvas){
             $(canvas).mousedown(handler.clicked);
 
         }
+        /*,
+
+        layer: 0,
+        initLayers: function(){
+            layer = 0;
+        },
+
+        switchLayer: function(e){
+            if (e.layer != Math.floor(layer / NODES_PER_LAYER)){
+              canvas.stop(true).fadeTo(e.dt,0, function(){
+                if (particleSystem) particleSystem.stop()
+                //$(this).hide()?
+              })
+            }else{
+              canvas.stop(true).css('opacity',0).show().fadeTo(e.dt,1,function(){
+                that.resize()
+              })
+              if (particleSystem) particleSystem.start()
+            }
+        }
+        */
 
     }
 
     return that;
 }
+
+
 
 $(document).ready(function(){
     var sys = arbor.ParticleSystem(1000, 600, 0.5) // create the system with sensible repulsion/stiffness/friction
@@ -147,16 +180,33 @@ $(document).ready(function(){
     //Central node
 
     $.getJSON("./data/originnode.json", function(data){
-        sys.addNode('centerNode', data);
+        data.alpha = 1;
+        var node = sys.addNode('centerNode', data);
+        //node.alpha = 1;
     });
 
+    var aNode = null;
     $.getJSON("./data/targetnodes.json", function(data){
-        console.log("message");
-        var toTake = data.success.length;
-        if(toTake > NODES_PER_LAYER) { toTake = NODES_PER_LAYER; }
-        for ( var i=0; i < toTake; i++){
-            sys.addNode(i, data.success[i].article);
+        //for ( var i=0; i < data.success.length; i++){
+        for ( var i=0; i < 2; i++){
+            data.success[i].article.alpha = 1;
+            aNode = sys.addNode(i, data.success[i].article);
             sys.addEdge('centerNode', i, data.success[i].connection);
+            //aNode.alpha = 0;
         }
     });
+
+    var anIndex = "0";
+    //var aNode = sys.getNode(anIndex);
+    var dt = 2
+    //var newAlpha = 1 - aNode.data.alpha;
+
+    $(sys.renderer).bind('layer', function(e){
+        var newAlpha = 0;//Math.random();
+        console.log("click!");
+        sys.tweenNode(aNode, dt, {title:"test", alpha: newAlpha})
+    })
+
+    //sys.renderer.switchLayer({layer: 1, dt: 'fast'});
+
 });
