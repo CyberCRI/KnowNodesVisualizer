@@ -3,6 +3,7 @@
 
 # Ignore node modules
 node_modules/
-
 #Ignore npm log
 npm-debug.log
+/demos/
+/docs/

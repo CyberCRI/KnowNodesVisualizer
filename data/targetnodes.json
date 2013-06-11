@@ -1,0 +1,885 @@
+{"success": [
+    {
+        "article": {
+            "KN_ID": "329a7b94-ddb5-4b12-b298-1e34ec21f875",
+            "url": "http://www.ucl.ac.uk/systems-biology/journalclub/2009_Fusseneger_nature07616.pdf",
+            "title": "A tunable synthetic mammalian oscillator",
+            "__CreatedOn__": 1362514509022,
+            "nodeType": "kn_Post",
+            "active": true,
+            "bodyText": "Autonomous and self-sustained oscillator circuits mediating the periodic induction of specific target genes are minimal genetic time-keeping devices found in the central and peripheral circadian clocks1,2. They have attracted significant attention because of their intriguing dynamics and their importance in controlling critical repair3, metabolic4 and signalling pathways5. The precise molecular mechanism and expression dynamics of this mammalian circadian clock are still not fully understood. Here we describe a synthetic mammalian oscillator based on an auto-regulated sense–antisense transcription control circuit encoding a positive and a time-delayed negative feedback loop, enabling autonomous, self-sustained and tunable oscillatory gene expression. After detailed systems design with experimental analyses and mathematical modelling, we moni- tored oscillating concentrations of green fluorescent protein with tunable frequency and amplitude by time-lapse microscopy in real time in individual Chinese hamster ovary cells. The synthetic mam- malian clock may provide an insight into the dynamics of natural periodic processes and foster advances in the design of prosthetic networks in future gene and cell therapies.",
+            "id": 108,
+            "user": {
+                "id": 104,
+                "KN_ID": "3fd9419e-46fa-42f7-8ac4-3ce43847a56b",
+                "email": "ophelie.foubet@gmail.com",
+                "firstName": "Ophélie",
+                "lastName": "Foubet",
+                "displayName": "Ophélie Foubet"
+            }
+        },
+        "connection": {
+            "KN_ID": "d7d6756f-492a-4a40-96cb-ab0552244c82",
+            "bodyText": "This is a letter  published in Nature in 2009 by Marcel Tigges, Tatiana T. Marquez-Lago, Jo ̈rg Stelling and Martin Fussenegger.\n\nThis article is about the circandians circles in mammalians. Their dynamics are not fully understood, either their molecular pathways.\n\nThus, they tried to reproduce a  synthetic mammalian oscillator, autonomous and tunable, to undersand the dynamic of genes transcription into a cell, using a novel network design combining an autoregulated positive transcription feedback with a two-step transcription cascade producing non-coding antisense RNA for translation control.\n\nThey tried their system on Chinese hamster ovary cells and observed some oscillations of UbV76–GFP fluorescence. These were spontaneous, autonomous, self-sustained and robust. They could disturbed the oscillations deliberately by adding antibiotics. \nThe frequency of the oscillations were found by Fast Fourier transformation-based analysis. They found a frequency of 170 6 71 min, with an amplitude of 1.81 6 1.96 fluorescence units.\n\nFinally, this synthetic mammalian oscillator is very useful to continue on more therapeutic innovations, as, for example, the Huntington’s and Alzheimer’s diseases are related to circadians' clocks...",
+            "title": "Provides bases for a better understanding of mammalians' clocks",
+            "__CreatedOn__": 1362514510889,
+            "fromNodeId": 15,
+            "connectionType": "gives background to",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "toNodeId": 108,
+            "user": {
+                "id": 104,
+                "KN_ID": "3fd9419e-46fa-42f7-8ac4-3ce43847a56b",
+                "email": "ophelie.foubet@gmail.com",
+                "firstName": "Ophélie",
+                "lastName": "Foubet",
+                "displayName": "Ophélie Foubet"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "KN_ID": "f938dc21-2e3c-4729-9ff6-11ad5776910c",
+            "url": "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1172236/",
+            "title": "Hysteresis in a synthetic mammalian gene network",
+            "__CreatedOn__": 1362477105848,
+            "nodeType": "kn_Post",
+            "active": true,
+            "bodyText": "A gene network is designed that exhibits a dynamic function known as hysteresis, which means that the system's response depends on its recent history. This a basic way of implementing memory. Understanding such network dynamics opens up perspectives of cell transcription machinery hijacking for medical purposess.\n\nThe principle is following : there is a competition between\n- an activator of the transgene (positive feedback loop)\n- a repressor of the positive feedback, which depends on a ligand's concentration.\n\nDepending on the ligand's concentration, either the activator or the transcriptor will have prefential binding to the DNA sequence. Only an intermediate concentration, which balances both effects, leads to hysteresis.",
+            "id": 91,
+            "user": {
+                "id": 81,
+                "KN_ID": "128ec8c4-4c45-4878-b957-e8521a7a5179",
+                "email": "thomaschartier.12@gmail.com",
+                "firstName": "Thomas",
+                "lastName": "Chartier",
+                "dateOfBirth": "1989-01-03T23:00:00.000Z",
+                "displayName": "Thomas Chartier"
+            }
+        },
+        "connection": {
+            "KN_ID": "25a7ef28-302e-4e9c-a747-8c7c611d8649",
+            "bodyText": "Another interesting aspect of this approach is the perspective of biologically reproducing the functions available in electronic circuits. Indeed, oscillations, bistability, hysteresis, are elementary blocks of electronics. By implementing those functions in biological systems, we could dream of building biological computers that would outperform current systems... :-)",
+            "title": "How synthetic biology can help understanding the mechanisms and dynamics of gene expression",
+            "__CreatedOn__": 1362477107888,
+            "fromNodeId": 15,
+            "connectionType": "gives background to",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "toNodeId": 91,
+            "user": {
+                "id": 81,
+                "KN_ID": "128ec8c4-4c45-4878-b957-e8521a7a5179",
+                "email": "thomaschartier.12@gmail.com",
+                "firstName": "Thomas",
+                "lastName": "Chartier",
+                "dateOfBirth": "1989-01-03T23:00:00.000Z",
+                "displayName": "Thomas Chartier"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "ukmss-34445.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"17\",\"size\":297346},\"files\":[{\"md5\":\"588bb26f2b7ea73c482077244cd8580a\",\"metadata\":{\"filename\":\"ukmss-34445.pdf\"},\"uploadDate\":\"2013-03-06T13:26:33.028Z\",\"chunkSize\":262144,\"length\":297346,\"contentType\":\"application/pdf\",\"filename\":\"ukmss-34445.pdf\",\"_id\":\"513744062ba903ec16000002\"}],\"dateAdded\":\"2013-03-06T13:26:30.379Z\"}",
+            "fileId": "513744062ba903ec16000002",
+            "url": "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3045879/",
+            "active": true,
+            "bodyText": "Synthetic biologists aim to generate biological organisms according to rational design principles. Their work may have many beneficial applications, but it also raises potentially serious ethical concerns. In this article, we consider what attention the discipline demands from bioethicists. We argue that the most important issue for ethicists to examine is the risk that knowledge from synthetic biology will be misused, for example, in biological terrorism or warfare. To adequately address this concern, bioethics will need to broaden its scope, contemplating not just the means by which scientific knowledge is produced, but also what kinds of knowledge should be sought and disseminated.",
+            "title": "Synthetic biology and the ethics of knowledge",
+            "KN_ID": "aef24340-5998-458a-9f8a-7e5d5d129016",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362576393456,
+            "id": 137,
+            "user": {
+                "id": 17,
+                "KN_ID": "27df57a1-89da-4a89-9829-b4662cffdfcf",
+                "email": "liad.magen@gmail.com",
+                "firstName": "Liad",
+                "lastName": "Magen",
+                "displayName": "Liad Magen"
+            }
+        },
+        "connection": {
+            "KN_ID": "687b31e6-f944-466f-ba75-c15151cd252d",
+            "bodyText": "It raises many ethical concerns. such as the 'Playing God' concern - should we alter nature for our own benefit? and the 'misuse of knowledge' concern that worries that the scientific work will be used instead of creating medications - to create new types of weapons.",
+            "title": "The moral and ethical perspective of synthetic biology medication creation",
+            "__CreatedOn__": 1362576395378,
+            "fromNodeId": 15,
+            "connectionType": "offer a unique perspective on",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "toNodeId": 137,
+            "user": {
+                "id": 17,
+                "KN_ID": "27df57a1-89da-4a89-9829-b4662cffdfcf",
+                "email": "liad.magen@gmail.com",
+                "firstName": "Liad",
+                "lastName": "Magen",
+                "displayName": "Liad Magen"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "Self-sufficient control of urate homeostasis in mice.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"19\",\"size\":676833},\"files\":[{\"md5\":\"84c3f70edf68f8f436b636384db689b2\",\"metadata\":{\"filename\":\"Self-sufficient control of urate homeostasis in mice.pdf\"},\"uploadDate\":\"2013-03-02T14:30:06.194Z\",\"chunkSize\":262144,\"length\":676833,\"contentType\":\"application/x-pdf\",\"filename\":\"Self-sufficient control of urate homeostasis in mice.pdf\",\"_id\":\"51320ceb95d62bd34000001f\"}],\"dateAdded\":\"2013-03-02T14:30:03.360Z\"}",
+            "fileId": "51320ceb95d62bd34000001f",
+            "url": "http://www.nature.com/nbt/journal/v28/n4/full/nbt.1617.html",
+            "active": true,
+            "bodyText": "Synthetic biology has shown that the metabolic behavior of mammalian cells can be altered by genetic devices such as epigenetic and hysteretic switches, , timers and oscillators, , biocomputers, hormone systems and heterologous metabolic shunts. To explore the potential of such devices for therapeutic strategies, we designed a synthetic mammalian circuit to maintain uric acid homeostasis in the bloodstream, disturbance of which is associated with tumor lysis syndrome and gout8, 9. This synthetic device consists of a modified Deinococcus radiodurans-derived protein that senses uric acids levels and triggers dose-dependent derepression of a secretion-engineered Aspergillus flavus urate oxidase that eliminates uric acid. In urate oxidase–deficient mice, which develop acute hyperuricemia, the synthetic circuit decreased blood urate concentration to stable sub-pathologic levels in a dose-dependent manner and reduced uric acid crystal deposits in the kidney. Synthetic gene-network devices providing self-sufficient control of pathologic metabolites represent molecular prostheses, which may foster advances in future gene- and cell-based therapies.",
+            "title": "Self-sufficient control of urate homeostasis in mice by a synthetic circuit",
+            "KN_ID": "ed9b8ae4-82b3-478c-bf3a-6f7149b1127c",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362234606533,
+            "id": 45,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "connection": {
+            "KN_ID": "766fa27d-2893-442a-9941-17c10410a44f",
+            "__CreatedOn__": 1362234608573,
+            "title": "An example of a prosthetic network",
+            "toNodeId": 45,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "Genetic control of mammalian T-cell proliferation.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"48\",\"size\":690025},\"files\":[{\"md5\":\"21b70e8297ab36051c6bca6fa45352d7\",\"metadata\":{\"filename\":\"Genetic control of mammalian T-cell proliferation.pdf\"},\"aliases\":null,\"uploadDate\":\"2013-03-02T15:41:05.801Z\",\"chunkSize\":262144,\"length\":690025,\"contentType\":\"application/pdf\",\"filename\":\"Genetic control of mammalian T-cell proliferation.pdf\",\"_id\":\"51321d8f95d62bd3400001ef\"}],\"dateAdded\":\"2013-03-04T10:26:41.834Z\"}",
+            "fileId": "51321d8f95d62bd3400001ef",
+            "url": "http://www.pnas.org/content/early/2010/04/23/1001721107.abstract",
+            "active": true,
+            "bodyText": "RNA molecules perform diverse regulatory functions in natural biological\nsystems, and numerous synthetic RNA-based control devices\nthat integrate sensing and gene-regulatory functions have been\ndemonstrated, predominantly in bacteria and yeast. Despite potential\nadvantages of RNA-based genetic control strategies in clinical\napplications, there has been limited success in extending engineered\nRNA devices to mammalian gene-expression control and\nno example of their application to functional response regulation\nin mammalian systems. Here we describe a synthetic RNA-based\nregulatory system and its application in advancing cellular therapies\nby linking rationally designed, drug-responsive, ribozymebased\nregulatory devices to growth cytokine targets to control\nmouse and primary human T-cell proliferation. We further demonstrate\nthe ability of our synthetic controllers to effectively modulate\nT-cell growth rate in response to drug input in vivo. Our RNAbased\nregulatory system exhibits unique properties critical for\ntranslation to therapeutic applications, including adaptability to diverse\nligand inputs and regulatory targets, tunable regulatory\nstringency, and rapid response to input availability. By providing\ntight gene-expression control with customizable ligand inputs,\nRNA-based regulatory systems can greatly improve cellular therapies\nand advance broad applications in health and medicine.",
+            "title": "Genetic control of mammalian T-cell proliferation with synthetic RNA regulatory systems",
+            "KN_ID": "4736c762-608b-472f-a693-8208095c4b79",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362392806425,
+            "id": 62,
+            "user": {
+                "id": 48,
+                "KN_ID": "7a9c1249-fea8-484a-92b5-d3414693f440",
+                "email": "helena.shomar@gmail.com",
+                "firstName": "Helena",
+                "lastName": "Shomar",
+                "dateOfBirth": "2013-03-12T23:00:00.000Z",
+                "displayName": "Helena Shomar"
+            }
+        },
+        "connection": {
+            "KN_ID": "d10cd385-ac16-436b-86da-f88459661355",
+            "bodyText": "This synthetic system allows the control of T-cell proliferation. Such systems could greatly improve cell-based therapies.",
+            "title": "Synthetic devices that integrate sensing and gene-regulatory functions in mammalian cells",
+            "__CreatedOn__": 1362392808349,
+            "toNodeId": 62,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 48,
+                "KN_ID": "7a9c1249-fea8-484a-92b5-d3414693f440",
+                "email": "helena.shomar@gmail.com",
+                "firstName": "Helena",
+                "lastName": "Shomar",
+                "dateOfBirth": "2013-03-12T23:00:00.000Z",
+                "displayName": "Helena Shomar"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "journal.pcbi.1002579.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"68\",\"size\":3860454},\"files\":[{\"md5\":\"035e1c0d47588358a4ab6b43280d5055\",\"metadata\":{\"filename\":\"journal.pcbi.1002579.pdf\"},\"aliases\":null,\"uploadDate\":\"2013-03-06T23:45:20.364Z\",\"chunkSize\":262144,\"length\":3860454,\"contentType\":\"application/pdf\",\"filename\":\"journal.pcbi.1002579.pdf\",\"_id\":\"5137d50287eec11d11000025\"}],\"dateAdded\":\"2013-03-06T23:58:13.894Z\"}",
+            "fileId": "5137d50287eec11d11000025",
+            "url": "http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002579",
+            "active": true,
+            "bodyText": "Synthetic biology efforts have largely focused on small engineered gene networks, yet understanding how to integrate multiple synthetic modules and interface them with endogenous pathways remains a challenge. Here we present the design, system integration, and analysis of several large scale synthetic gene circuits for artificial tissue homeostasis. Diabetes therapy represents a possible application for engineered homeostasis, where genetically programmed stem cells maintain a steady population of β-cells despite continuous turnover. We develop a new iterative process that incorporates modular design principles with hierarchical performance optimization targeted for environments with uncertainty and incomplete information. We employ theoretical analysis and computational simulations of multicellular reaction/diffusion models to design and understand system behavior, and find that certain features often associated with robustness (e.g., multicellular synchronization and noise attenuation) are actually detrimental for tissue homeostasis. We overcome these problems by engineering a new class of genetic modules for ‘synthetic cellular heterogeneity’ that function to generate beneficial population diversity. We design two such modules (an asynchronous genetic oscillator and a signaling throttle mechanism), demonstrate their capacity for enhancing robust control, and provide guidance for experimental implementation with various computational techniques. We found that designing modules for synthetic heterogeneity can be complex, and in general requires a framework for non-linear and multifactorial analysis. Consequently, we adapt a ‘phenotypic sensitivity analysis’ method to determine how functional module behaviors combine to achieve optimal system performance. We ultimately combine this analysis with Bayesian network inference to extract critical, causal relationships between a module's biochemical rate-constants, its high level functional behavior in isolation, and its impact on overall system performance once integrated.",
+            "title": "Modular Design of Artificial Tissue Homeostasis: Robust Control through Synthetic Cellular Heterogeneity",
+            "KN_ID": "19464e0a-030d-4a1e-9136-71dd0312a207",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362614308213,
+            "id": 153,
+            "user": {
+                "id": 68,
+                "KN_ID": "aec1911a-4d10-4edf-9f77-4410b865dfcc",
+                "email": "nicola.bertoldi87@gmail.com",
+                "firstName": "Nicola",
+                "lastName": "Bertoldi",
+                "displayName": "Nicola Bertoldi"
+            }
+        },
+        "connection": {
+            "KN_ID": "109d4c40-03ff-4acf-958b-654d82fcfcd4",
+            "bodyText": "This synthetic system has been conceived in order to regulate the physiology of an insulin-producing-beta-cells population, by balancing growth, death and differentiation of multiple cell-types within this multicellular community . It's thus an example of how standardized synthetic gene circuits can be assembled into a  large-scale multicellular system aiming at regulating an artificial tissue's homeostasis. The interest of such a system (tested in four different versions) consists in combining various modular mechanisms in order to promote both variability (differentiation of totipotent stem cells into beta cells) and stability of the overall system. Of note, the authors rely on a wide array of modeling tools in order to analyze the properties of the different system versions, as well as their efficiency in these two respects, ranging from deterministic ODE models, Langevin and Gillespie stochastic simulations to bayesian network analysis techniques. All this results in a coherent framework for forward-engineering of artificial homeostatic tissues that combines – in a top-down approach – detailed biochemical models of the various modules, interdependence analysis of the resulting phenotypes and optimization of modular integration. In conclusion, future medical applications of such approach could range from the stem cells-based treatment of type I diabetes (which implies a lack of beta cells due to excessive deaths) and neurodegenerative diseases to the reverse-engineering study of cell heterogeneity within a cancerous tissue.",
+            "title": "It provides an interesting example of how single genetic circuits can be assembled into large-scale regulatory systems for artificial tissue homeostasis",
+            "__CreatedOn__": 1362614310174,
+            "toNodeId": 153,
+            "fromNodeId": 15,
+            "connectionType": "is instance of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 68,
+                "KN_ID": "aec1911a-4d10-4edf-9f77-4410b865dfcc",
+                "email": "nicola.bertoldi87@gmail.com",
+                "firstName": "Nicola",
+                "lastName": "Bertoldi",
+                "displayName": "Nicola Bertoldi"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "Genetic control of mammalian T-cell proliferation.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"48\",\"size\":690025},\"files\":[{\"metadata\":{\"filename\":\"Genetic control of mammalian T-cell proliferation.pdf\"},\"aliases\":null,\"uploadDate\":\"2013-03-02T15:41:05.801Z\",\"chunkSize\":262144,\"length\":690025,\"contentType\":\"application/pdf\",\"filename\":\"Genetic control of mammalian T-cell proliferation.pdf\",\"_id\":\"51321d8f95d62bd3400001ef\"}],\"dateAdded\":\"2013-03-04T10:26:51.840Z\"}",
+            "fileId": "51321d8f95d62bd3400001ef",
+            "url": "http://www.pnas.org/content/early/2010/04/23/1001721107.abstract",
+            "active": true,
+            "bodyText": "RNA molecules perform diverse regulatory functions in natural biological\nsystems, and numerous synthetic RNA-based control devices\nthat integrate sensing and gene-regulatory functions have been\ndemonstrated, predominantly in bacteria and yeast. Despite potential\nadvantages of RNA-based genetic control strategies in clinical\napplications, there has been limited success in extending engineered\nRNA devices to mammalian gene-expression control and\nno example of their application to functional response regulation\nin mammalian systems. Here we describe a synthetic RNA-based\nregulatory system and its application in advancing cellular therapies\nby linking rationally designed, drug-responsive, ribozymebased\nregulatory devices to growth cytokine targets to control\nmouse and primary human T-cell proliferation. We further demonstrate\nthe ability of our synthetic controllers to effectively modulate\nT-cell growth rate in response to drug input in vivo. Our RNAbased\nregulatory system exhibits unique properties critical for\ntranslation to therapeutic applications, including adaptability to diverse\nligand inputs and regulatory targets, tunable regulatory\nstringency, and rapid response to input availability. By providing\ntight gene-expression control with customizable ligand inputs,\nRNA-based regulatory systems can greatly improve cellular therapies\nand advance broad applications in health and medicine.",
+            "title": "Genetic control of mammalian T-cell proliferation with synthetic RNA regulatory systems",
+            "KN_ID": "516c302f-2a9d-494e-acf2-cbcdc4b77fd7",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362392815132,
+            "id": 64,
+            "user": {
+                "id": 48,
+                "KN_ID": "7a9c1249-fea8-484a-92b5-d3414693f440",
+                "email": "helena.shomar@gmail.com",
+                "firstName": "Helena",
+                "lastName": "Shomar",
+                "dateOfBirth": "2013-03-12T23:00:00.000Z",
+                "displayName": "Helena Shomar"
+            }
+        },
+        "connection": {
+            "KN_ID": "334693fb-0248-492c-aaf5-31a33b15c078",
+            "bodyText": "This synthetic system allows the control of T-cell proliferation. Such systems could greatly improve cell-based therapies.",
+            "title": "Synthetic devices that integrate sensing and gene-regulatory functions in mammalian cells",
+            "__CreatedOn__": 1362392817139,
+            "toNodeId": 64,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 48,
+                "KN_ID": "7a9c1249-fea8-484a-92b5-d3414693f440",
+                "email": "helena.shomar@gmail.com",
+                "firstName": "Helena",
+                "lastName": "Shomar",
+                "dateOfBirth": "2013-03-12T23:00:00.000Z",
+                "displayName": "Helena Shomar"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "KN_ID": "2a1da646-f114-42a8-9489-e7646b368a40",
+            "url": "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC49329/",
+            "title": "Tight control of gene expression in mammalian cells by tetracycline-responsive promoters.",
+            "__CreatedOn__": 1362609781824,
+            "nodeType": "kn_Post",
+            "active": true,
+            "bodyText": "Control elements of the tetracycline-resistance operon encoded in Tn10 of Escherichia coli have been utilized to establish a highly efficient regulatory system in mammalian cells. By fusing the tet repressor with the activating domain of virion protein 16 of herpes simplex virus, a tetracycline-controlled transactivator (tTA) was generated that is constitutively expressed in HeLa cells. This transactivator stimulates transcription from a minimal promoter sequence derived from the human cytomegalovirus promoter IE combined with tet operator sequences. Upon integration of a luciferase gene controlled by a tTA-dependent promoter into a tTA-producing HeLa cell line, high levels of luciferase expression were monitored. These activities are sensitive to tetracycline. Depending on the concentration of the antibiotic in the culture medium (0-1 microgram/ml), the luciferase activity can be regulated over up to five orders of magnitude. Thus, the system not only allows differential control of the activity of an individual gene in mammalian cells but also is suitable for creation of \"on/off\" situations for such genes in a reversible way.",
+            "id": 148,
+            "user": {
+                "id": 135,
+                "KN_ID": "592114d1-3d01-4c20-ada5-fa48d5672e78",
+                "email": "lini_kiwi@hotmail.com",
+                "firstName": "Lyndsey",
+                "lastName": "Kirwan",
+                "dateOfBirth": "1988-02-21T23:00:00.000Z",
+                "displayName": "Lyndsey Kirwan"
+            }
+        },
+        "connection": {
+            "KN_ID": "f7729447-151b-4039-a92c-18c363b71e0a",
+            "bodyText": "I typed my comments and tried to upload with the pdf of the article...but it didnt work and now theyre gone.... :,( I'm so tired, Ill try type them before the presentation...",
+            "title": "an early example of synthetic biology in mammalian cells",
+            "__CreatedOn__": 1362609783806,
+            "toNodeId": 148,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 135,
+                "KN_ID": "592114d1-3d01-4c20-ada5-fa48d5672e78",
+                "email": "lini_kiwi@hotmail.com",
+                "firstName": "Lyndsey",
+                "lastName": "Kirwan",
+                "dateOfBirth": "1988-02-21T23:00:00.000Z",
+                "displayName": "Lyndsey Kirwan"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "KN_ID": "1c166977-a867-4c29-8a10-4ac38e49314f",
+            "url": "http://www.ucl.ac.uk/systems-biology/journalclub/2009_Fusseneger_nature07616.pdf",
+            "title": "A tunable synthetic mammalian oscillator",
+            "__CreatedOn__": 1362514503690,
+            "nodeType": "kn_Post",
+            "active": true,
+            "bodyText": "Autonomous and self-sustained oscillator circuits mediating the periodic induction of specific target genes are minimal genetic time-keeping devices found in the central and peripheral circadian clocks1,2. They have attracted significant attention because of their intriguing dynamics and their importance in controlling critical repair3, metabolic4 and signalling pathways5. The precise molecular mechanism and expression dynamics of this mammalian circadian clock are still not fully understood. Here we describe a synthetic mammalian oscillator based on an auto-regulated sense–antisense transcription control circuit encoding a positive and a time-delayed negative feedback loop, enabling autonomous, self-sustained and tunable oscillatory gene expression. After detailed systems design with experimental analyses and mathematical modelling, we moni- tored oscillating concentrations of green fluorescent protein with tunable frequency and amplitude by time-lapse microscopy in real time in individual Chinese hamster ovary cells. The synthetic mam- malian clock may provide an insight into the dynamics of natural periodic processes and foster advances in the design of prosthetic networks in future gene and cell therapies.",
+            "id": 106,
+            "user": {
+                "id": 104,
+                "KN_ID": "3fd9419e-46fa-42f7-8ac4-3ce43847a56b",
+                "email": "ophelie.foubet@gmail.com",
+                "firstName": "Ophélie",
+                "lastName": "Foubet",
+                "displayName": "Ophélie Foubet"
+            }
+        },
+        "connection": {
+            "KN_ID": "7346883f-3d1a-467e-be6b-97b549df0194",
+            "bodyText": "This is a letter  published in Nature in 2009 by Marcel Tigges, Tatiana T. Marquez-Lago, Jo ̈rg Stelling and Martin Fussenegger.\n\nThis article is about the circandians circles in mammalians. Their dynamics are not fully understood, either their molecular pathways.\n\nThus, they tried to reproduce a  synthetic mammalian oscillator, autonomous and tunable, to undersand the dynamic of genes transcription into a cell, using a novel network design combining an autoregulated positive transcription feedback with a two-step transcription cascade producing non-coding antisense RNA for translation control.\n\nThey tried their system on Chinese hamster ovary cells and observed some oscillations of UbV76–GFP fluorescence. These were spontaneous, autonomous, self-sustained and robust. They could disturbed the oscillations deliberately by adding antibiotics. \nThe frequency of the oscillations were found by Fast Fourier transformation-based analysis. They found a frequency of 170 6 71 min, with an amplitude of 1.81 6 1.96 fluorescence units.\n\nFinally, this synthetic mammalian oscillator is very useful to continue on more therapeutic innovations, as, for example, the Huntington’s and Alzheimer’s diseases are related to circadians' clocks...",
+            "title": "Provides bases for a better understanding of mammalians' clocks",
+            "__CreatedOn__": 1362514505871,
+            "fromNodeId": 15,
+            "connectionType": "gives background to",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "toNodeId": 106,
+            "user": {
+                "id": 104,
+                "KN_ID": "3fd9419e-46fa-42f7-8ac4-3ce43847a56b",
+                "email": "ophelie.foubet@gmail.com",
+                "firstName": "Ophélie",
+                "lastName": "Foubet",
+                "displayName": "Ophélie Foubet"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "multi input RNAi based logic circuit.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"19\",\"size\":540958},\"files\":[{\"md5\":\"5ba2f4dfa0b3c7a3802bc5f808a561bb\",\"metadata\":{\"filename\":\"multi input RNAi based logic circuit.pdf\"},\"uploadDate\":\"2013-03-02T14:21:44.734Z\",\"chunkSize\":262144,\"length\":540958,\"contentType\":\"application/x-pdf\",\"filename\":\"multi input RNAi based logic circuit.pdf\",\"_id\":\"51320af595d62bd34000000f\"}],\"dateAdded\":\"2013-03-02T14:21:41.662Z\"}",
+            "fileId": "51320af595d62bd34000000f",
+            "url": "http://www.sciencemag.org/content/333/6047/1307.abstract",
+            "active": true,
+            "bodyText": "Engineered biological systems that integrate multi-input sensing, sophisticated information processing, and precisely regulated actuation in living cells could be useful in a variety of applications. For example, anticancer therapies could be engineered to detect and respond to complex cellular conditions in individual cells with high specificity. Here, we show a scalable transcriptional/posttranscriptional synthetic regulatory circuit—a cell-type “classifier”—that senses expression levels of a customizable set of endogenous microRNAs and triggers a cellular response only if the expression levels match a predetermined profile of interest. We demonstrate that a HeLa cancer cell classifier selectively identifies HeLa cells and triggers apoptosis without affecting non-HeLa cell types. This approach also provides a general platform for programmed responses to other complex cell states.",
+            "title": "Multi-Input RNAi-Based Logic Circuit for Identification of Specific Cancer Cells",
+            "KN_ID": "e5c7a8bc-ca09-4855-8639-c23ab4f112a5",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362234105052,
+            "id": 38,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "connection": {
+            "KN_ID": "b46b70c8-5eb2-4222-b7c7-5d3925be63ed",
+            "title": "This article shows how a synthetic circuit can act as a cell-type classifier that trigger apoptosis when detecting a HeLa cancer cell",
+            "__CreatedOn__": 1362234107098,
+            "toNodeId": 38,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "KN_ID": "5212062f-59c5-44b5-a668-3ce08027bad3",
+            "url": "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC49329/",
+            "title": "Tight control of gene expression in mammalian cells by tetracycline-responsive promoters.",
+            "__CreatedOn__": 1362609777672,
+            "nodeType": "kn_Post",
+            "active": true,
+            "bodyText": "Control elements of the tetracycline-resistance operon encoded in Tn10 of Escherichia coli have been utilized to establish a highly efficient regulatory system in mammalian cells. By fusing the tet repressor with the activating domain of virion protein 16 of herpes simplex virus, a tetracycline-controlled transactivator (tTA) was generated that is constitutively expressed in HeLa cells. This transactivator stimulates transcription from a minimal promoter sequence derived from the human cytomegalovirus promoter IE combined with tet operator sequences. Upon integration of a luciferase gene controlled by a tTA-dependent promoter into a tTA-producing HeLa cell line, high levels of luciferase expression were monitored. These activities are sensitive to tetracycline. Depending on the concentration of the antibiotic in the culture medium (0-1 microgram/ml), the luciferase activity can be regulated over up to five orders of magnitude. Thus, the system not only allows differential control of the activity of an individual gene in mammalian cells but also is suitable for creation of \"on/off\" situations for such genes in a reversible way.",
+            "id": 146,
+            "user": {
+                "id": 135,
+                "KN_ID": "592114d1-3d01-4c20-ada5-fa48d5672e78",
+                "email": "lini_kiwi@hotmail.com",
+                "firstName": "Lyndsey",
+                "lastName": "Kirwan",
+                "dateOfBirth": "1988-02-21T23:00:00.000Z",
+                "displayName": "Lyndsey Kirwan"
+            }
+        },
+        "connection": {
+            "KN_ID": "5f1cd2de-ac7a-4bfb-9676-1b7c48e1742f",
+            "bodyText": "I typed my comments and tried to upload with the pdf of the article...but it didnt work and now theyre gone.... :,( I'm so tired, Ill try type them before the presentation...",
+            "title": "an early example of synthetic biology in mammalian cells",
+            "__CreatedOn__": 1362609779789,
+            "toNodeId": 146,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 135,
+                "KN_ID": "592114d1-3d01-4c20-ada5-fa48d5672e78",
+                "email": "lini_kiwi@hotmail.com",
+                "firstName": "Lyndsey",
+                "lastName": "Kirwan",
+                "dateOfBirth": "1988-02-21T23:00:00.000Z",
+                "displayName": "Lyndsey Kirwan"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "KN_ID": "515980fa-19c9-4f31-8fbe-e311b11e10b7",
+            "url": "http://www.nature.com/gt/journal/v15/n1/full/3303049a.html",
+            "title": "Transplantation of microencapsulated genetically modified xenogeneic cells augments angiogenesis and improves heart function",
+            "__CreatedOn__": 1362483794824,
+            "nodeType": "kn_Post",
+            "active": true,
+            "bodyText": "Cell-based gene therapy offers an alternative strategy for therapeutic angiogenesis for the management of myocardial infarction (MI). However, immune rejection poses a significant obstacle to the implantation of genetically engineered allogeneic or xenogeneic cells. In the present study, an ex vivo gene therapy approach utilizing cell microencapsulation was employed to deliver vascular endothelial growth factor (VEGF) to ischemic myocardium. Chinese hamster ovary (CHO) cells were genetically modified to secrete VEGF and enveloped into semipermeable microcapsules. In vitro assay indicated that the microencapsulated engineered CHO cells could secrete VEGF as high as 3852 pg ml−1 per 48 h at day 8 after encapsulation. Then the microencapsulated CHO cells were implanted into the injured myocardium in a rat MI model, while engineered CHO cells, blank microcapsules and serum-free culture media were implanted as controls. The humoral immunity to xenogeneic CHO cells were evaluated and we found that the titer of anti-CHO antibodies was significantly lower in the microencapsulated CHO transplantation group than the group receiving unencapsulated CHO cells at two weeks after implantation. However, 1 week later, there was almost no difference between these groups. Histology and western blotting confirmed that the microencapsulated CHO cells maintained their original structure and VEGF secretion three weeks after implantation. The capillary density in the treatment region was also significantly higher in the microencapsulated CHO cell group than control groups, which was consistent with gross heart functional improvement. These data suggest that microencapsulated xenogeneic cell-based gene therapy might be a novel approach for therapeutic angiogenesis in ischemic heart disease.",
+            "id": 94,
+            "user": {
+                "id": 90,
+                "KN_ID": "215e7dd4-4f1c-4ec6-bc53-0d74dc3c1756",
+                "email": "aishah_rp@yahoo.com",
+                "firstName": "Aishah",
+                "lastName": "Prastowo",
+                "dateOfBirth": "1991-01-27T17:00:00.000Z",
+                "displayName": "Aishah Prastowo"
+            }
+        },
+        "connection": {
+            "KN_ID": "36c99817-d2a3-4a3c-b90a-ec5bb44811ca",
+            "bodyText": "The authors proved possibility of synthetic biology for engineering Chinese hamster ovary cells, with cell microencapsulation to deliver vascular endothelial growth factor (VEGF) to ischemic myocardium of rats. The abstract already summarize the approach they used but the point is they showed that they can transplant the microencapsulated engineered xenogeneic CHO cells and they proved the improvement of the heart function in post-infarction myocardium in their model. This is a new approach for therapeutic angiogenesis for heart diseases treatment.",
+            "title": "Here synthetic biology was used to engineer CHO cells to treat injured myocardium in a rat MI model",
+            "__CreatedOn__": 1362483796940,
+            "fromNodeId": 15,
+            "connectionType": "is a possible application",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "toNodeId": 94,
+            "user": {
+                "id": 90,
+                "KN_ID": "215e7dd4-4f1c-4ec6-bc53-0d74dc3c1756",
+                "email": "aishah_rp@yahoo.com",
+                "firstName": "Aishah",
+                "lastName": "Prastowo",
+                "dateOfBirth": "1991-01-27T17:00:00.000Z",
+                "displayName": "Aishah Prastowo"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "2006_anderson_jmb_invasion.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"99\",\"size\":401507},\"files\":[{\"metadata\":{\"filename\":\"2006_anderson_jmb_invasion.pdf\"},\"aliases\":null,\"uploadDate\":\"2013-03-05T14:30:24.418Z\",\"chunkSize\":262144,\"length\":401507,\"contentType\":\"application/pdf\",\"filename\":\"2006_anderson_jmb_invasion.pdf\",\"_id\":\"5136017c25c2d2274a00000b\"}],\"dateAdded\":\"2013-03-05T14:30:37.563Z\"}",
+            "fileId": "5136017c25c2d2274a00000b",
+            "url": "http://web.mit.edu/voigtlab/papers/2006_anderson_jmb_invasion.pdf",
+            "active": true,
+            "bodyText": "Bacteria can sense their environment, distinguish between cell types, and deliver proteins to eukaryotic cells. Here, we engineer the interaction between bacteria and cancer cells to depend on heterologous environmental signals. We have characterized invasin from Yersinia pseudotuburculosis as an output module that enables Escherichia coli to invade cancer-derived cells, including HeLa, HepG2, and U2OS lines. To environmentally restrict invasion, we placed this module under the control of heterologous sensors. With the Vibrio fischeri lux quorum sensing circuit, the hypoxia-responsive fdhF promoter, or the arabinose-inducible araBAD promoter, the bacteria invade cells at densities greater than 108 bacteria/ml, after growth in an anaerobic growth chamber or in the presence of 0.02% arabinose, respectively. In the process, we developed a technique to tune the linkage between a sensor and output gene using ribosome binding site libraries and genetic selection. This approach could be used to engineer bacteria to sense the microenvironment of a tumor and respond by invading cancerous cells and releasing a cytotoxic agent.",
+            "title": "Environmentally Controlled Invasion of Cancer Cells by Engineered Bacteria",
+            "KN_ID": "fb059e8e-efa2-49b0-8ff7-fabbdcc30a76",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362493840563,
+            "id": 100,
+            "user": {
+                "id": 99,
+                "KN_ID": "810c119c-f826-4629-abc8-8d3e9b010103",
+                "email": "aude.bernheim@gmail.com",
+                "firstName": "Aude",
+                "lastName": "Bernheim",
+                "displayName": "Aude Bernheim"
+            }
+        },
+        "connection": {
+            "KN_ID": "a20c03ad-90f6-4032-a2c3-0d1278f87ade",
+            "title": "description of a design of bacteria able to invade mammalian cells selectively at high cell density, after anaerobic growth, or after chemical induction.",
+            "__CreatedOn__": 1362493842609,
+            "toNodeId": 100,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 99,
+                "KN_ID": "810c119c-f826-4629-abc8-8d3e9b010103",
+                "email": "aude.bernheim@gmail.com",
+                "firstName": "Aude",
+                "lastName": "Bernheim",
+                "displayName": "Aude Bernheim"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "A tunable dual-promoter integrator for targeting of cancer cells.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"19\",\"size\":1411228},\"files\":[{\"md5\":\"9e3471c26f78e7005da073645148dd81\",\"metadata\":{\"filename\":\"A tunable dual-promoter integrator for targeting of cancer cells.pdf\"},\"uploadDate\":\"2013-03-04T14:48:55.168Z\",\"chunkSize\":262144,\"length\":1411228,\"contentType\":\"application/x-pdf\",\"filename\":\"A tunable dual-promoter integrator for targeting of cancer cells.pdf\",\"_id\":\"5134b4533872aab45200001f\"}],\"dateAdded\":\"2013-03-04T14:48:51.427Z\"}",
+            "fileId": "5134b4533872aab45200001f",
+            "url": "http://www.nature.com/msb/journal/v6/n1/full/msb201099.html",
+            "active": true,
+            "bodyText": "Precise discrimination between similar cellular states is essential for autonomous decision-making scenarios, such as in vivo targeting of diseased cells. Discrimination could be achieved by delivering an effector gene expressed under a highly active context-specific promoter. Yet, a single-promoter approach has linear response and offers limited control of specificity and efficacy. Here, we constructed a dual-promoter integrator, which expresses an effector gene only when the combined activity of two internal input promoters is high. A tunable response provides flexibility in choosing promoter inputs and effector gene output. Experiments using one premalignant and four cancer cell lines, over a wide range of promoter activities, revealed a digital-like response of input amplification following a sharp activation threshold. The response function is cell dependent with its overall magnitude increasing with degree of malignancy. The tunable digital-like response provides robustness, acts to remove input noise minimizing false-positive identification of cell states, and improves targeting precision and efficacy.",
+            "title": "A tunable dual-promoter integrator for targeting of cancer cells",
+            "KN_ID": "d468818c-e4aa-485e-9761-8ef6b286e8c3",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362408535565,
+            "id": 85,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "connection": {
+            "KN_ID": "faf71e90-a551-4e60-8994-4d2131953b48",
+            "title": "Specifically killing cancer cells thanks to a dual-promoter integrator allowing discrimination between healthy and cancerous",
+            "__CreatedOn__": 1362408537620,
+            "toNodeId": 85,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "Science 2011 A Synthetic Optogenetic Transcription Device Enhances Blood-Glucose Homeostasis in Mice.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"53\",\"size\":809180},\"files\":[{\"md5\":\"2f7d5e6e07be1e317ef2960802dd7a58\",\"metadata\":{\"filename\":\"Science 2011 A Synthetic Optogenetic Transcription Device Enhances Blood-Glucose Homeostasis in Mice.pdf\"},\"uploadDate\":\"2013-03-03T23:27:33.542Z\",\"chunkSize\":262144,\"length\":809180,\"contentType\":\"application/pdf\",\"filename\":\"Science 2011 A Synthetic Optogenetic Transcription Device Enhances Blood-Glucose Homeostasis in Mice.pdf\",\"_id\":\"5133dc616fa68a196e000002\"}],\"dateAdded\":\"2013-03-03T23:27:29.107Z\"}",
+            "fileId": "5133dc616fa68a196e000002",
+            "url": "http://www.sciencemag.org.rproxy.sc.univ-paris-diderot.fr/content/332/6037/1565.full.pdf?sid=77c369aa-2009-4709-931f-631d7e0f8ecf",
+            "active": true,
+            "bodyText": "Synthetic biology has advanced the design of genetic devices that can be used to reprogram metabolic activities in mammalian cells. By functionally linking the signal transduction of melanopsin to the control circuit of the nuclear factor of activated T cells, we have designed a synthetic signaling cascade enabling light-inducible transgene expression in different cell lines grown in culture or bioreactors or implanted into mice. In animals harboring intraperitoneal hollow-fiber or subcutaneous implants containing light-inducible transgenic cells, the serum levels of the human glycoprotein secreted alkaline phosphatase could be remote-controlled with fiber optics or transdermally regulated through direct illumination. Light-controlled expression of the glucagon-like peptide 1 was able to attenuate glycemic excursions in type II diabetic mice. Synthetic light-pulse–transcription converters may have applications in therapeutics and protein expression technology.",
+            "title": "A Synthetic Optogenetic Transcription Device Enhances Blood-Glucose Homeostasis in Mice",
+            "KN_ID": "607f21f9-6403-4447-98f0-0f4497070d1c",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362353254045,
+            "id": 55,
+            "user": {
+                "id": 53,
+                "KN_ID": "a4fdfb07-066d-4324-a78b-241d03146e5a",
+                "email": "pasquier9606@yahoo.fr",
+                "firstName": "Pierre",
+                "lastName": "Pasquier",
+                "dateOfBirth": "1978-08-02T22:00:00.000Z",
+                "displayName": "Pierre Pasquier"
+            }
+        },
+        "connection": {
+            "KN_ID": "1b40c6c1-f899-4a4c-a46b-5342fa59979f",
+            "bodyText": "Encapsulation technology has far proven safe for the implantation of cells carrying natural sensor-actuator systems, and many synthetic biology systems could benefit from analogous strategies. In this example, encapsulated cells expressing the photoreceptor melanopsin were implanted subcutaneously into a type II diabetes mouse model, and exposure to blue light initiated a signaling cascade that led to the expression of a glucagon-like peptide (GLP1) transgene that regulated glucose homeostasis.",
+            "title": "By refactoring the melanopsin signaling cascade, light-inducible gene transcription was developed in mammalian cells. Implanting capsules of transgenic cells harboring this device allowed transdermal light induction of glucagon-like peptide 1, regulating glucose homeostasis in type II diabetic mice. This was the first example of light-controlled gene tran- scription and metabolic pathway control in live animals.",
+            "__CreatedOn__": 1362353256031,
+            "toNodeId": 55,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 53,
+                "KN_ID": "a4fdfb07-066d-4324-a78b-241d03146e5a",
+                "email": "pasquier9606@yahoo.fr",
+                "firstName": "Pierre",
+                "lastName": "Pasquier",
+                "dateOfBirth": "1978-08-02T22:00:00.000Z",
+                "displayName": "Pierre Pasquier"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "Bacterial virulence proteins as tools to rewire kinase pathways in yeast and immune cells.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"54\",\"size\":555095},\"files\":[{\"md5\":\"0db1f0b6d0223a35e96b1ef8472c5a02\",\"metadata\":{\"filename\":\"Bacterial virulence proteins as tools to rewire kinase pathways in yeast and immune cells.pdf\"},\"aliases\":null,\"uploadDate\":\"2013-03-05T12:51:28.162Z\",\"chunkSize\":262144,\"length\":555095,\"contentType\":\"application/pdf\",\"filename\":\"Bacterial virulence proteins as tools to rewire kinase pathways in yeast and immune cells.pdf\",\"_id\":\"5135ea4d830b5d481b00008a\"}],\"dateAdded\":\"2013-03-05T14:06:25.066Z\"}",
+            "fileId": "5135ea4d830b5d481b00008a",
+            "url": "http://www.nature.com/nature/journal/v488/n7411/full/nature11259.html",
+            "active": true,
+            "bodyText": "Bacterial pathogens have evolved specific effector proteins that, by interfacing with host kinase signalling pathways, provide a mechanism to evade immune responses during infection. Although these effectors contribute to pathogen virulence, we realized that they might also serve as valuable synthetic biology reagents for engineering cellular behaviour. Here we exploit two effector proteins, the Shigella flexneri OspF protein and Yersinia pestis YopH protein, to rewire kinase-mediated responses systematically both in yeast and mammalian immune cells. Bacterial effector proteins can be directed to inhibit specific mitogen-activated protein kinase pathways selectively in yeast by artificially targeting them to pathway-specific complexes. Moreover, we show that unique properties of the effectors generate new pathway behaviours: OspF, which irreversibly inactivates mitogen-activated protein kinases, was used to construct a synthetic feedback circuit that shows novel frequency-dependent input filtering. Finally, we show that effectors can be used in T cells, either as feedback modulators to tune the T-cell response amplitude precisely, or as an inducible pause switch that can temporarily disable T-cell activation. These studies demonstrate how pathogens could provide a rich toolkit of parts to engineer cells for therapeutic or biotechnological applications.",
+            "title": "Bacterial virulence proteins as tools to rewire kinase pathways in yeast and immune cells",
+            "KN_ID": "d5ee083d-1669-43d0-b51d-32845404e27d",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362492388996,
+            "id": 97,
+            "user": {
+                "id": 54,
+                "KN_ID": "6da8584f-2318-4773-8cc1-7cbd66e22686",
+                "email": "zoranmarin2@gmail.com",
+                "firstName": "Zoran",
+                "lastName": "Marinkovic",
+                "dateOfBirth": "1987-04-25T22:00:00.000Z",
+                "displayName": "Zoran Marinkovic"
+            }
+        },
+        "connection": {
+            "KN_ID": "bc1aad6b-04d2-4bab-891c-4d1f4f53fcfa",
+            "bodyText": "Exploiting a huge realm of possible beneficial molecules that could be plugged between different species as a part of synthetic biology toolkit in therapeutic innovation is an emerging field that holds a promise of great success in the future. Here, the effector proteins from bacterial pathogens which usually increase their virulence are used for rewiring signalling in human T cells, thus making these proteins beneficial for human health. More specifically, the potential application of effector proteins OspF and YopH as safety switches for adoptive immunotherapy is demonstrated. They can be used for modification of the T-cell receptor pathway by blocking it at specific steps. Over-activation or off-target activation of T cells can lead to a life threatening immune response so the principles of the circuit design that would limit the amplitude of the T-cell response or pause T-cell activity temporarily are described in this article.",
+            "title": "In this article the bacterial effector proteins OspF and YopH are used to modulate kinase signalling pathways in human T cells",
+            "__CreatedOn__": 1362492390985,
+            "toNodeId": 97,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 54,
+                "KN_ID": "6da8584f-2318-4773-8cc1-7cbd66e22686",
+                "email": "zoranmarin2@gmail.com",
+                "firstName": "Zoran",
+                "lastName": "Marinkovic",
+                "dateOfBirth": "1987-04-25T22:00:00.000Z",
+                "displayName": "Zoran Marinkovic"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "The new drug circuit.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"19\",\"size\":1604651},\"files\":[{\"md5\":\"857b45613989de922e7789794a03702b\",\"metadata\":{\"filename\":\"The new drug circuit.pdf\"},\"uploadDate\":\"2013-03-02T13:49:57.705Z\",\"chunkSize\":262144,\"length\":1604651,\"contentType\":\"application/x-pdf\",\"filename\":\"The new drug circuit.pdf\",\"_id\":\"5132037f95d62bd340000002\"}],\"dateAdded\":\"2013-03-02T13:49:51.017Z\"}",
+            "fileId": "5132037f95d62bd340000002",
+            "url": "http://www.nature.com/nm/journal/v18/n10/full/nm1012-1452.html",
+            "active": true,
+            "bodyText": "Synthetic biology has historically relied on bacteria as a testing ground for engineering cell behavior through genetic signals. But a small group of researchers have their sights set on redesigning mammalian cells, which have more complex genetic machinery. Meet the scientists aiming to reprogram our bodies' cells for a new generation of tailor-made treatments.",
+            "title": "The new drug circuit",
+            "KN_ID": "460af56d-3a14-4df4-884b-26960409fb94",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362232198046,
+            "id": 9,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "connection": {
+            "KN_ID": "f513159a-93e6-4bfb-ac6d-9f461aaa9679",
+            "__CreatedOn__": 1362232199964,
+            "title": "A nice introduction to the field",
+            "toNodeId": 9,
+            "fromNodeId": 15,
+            "connectionType": "discusses",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 2
+    },
+    {
+        "article": {
+            "KN_ID": "6f71940b-dd9c-4d19-860f-d372f4336f09",
+            "bodyText": "While in vitro cell based systems have been an invaluable tool in biology, they often suffer from a lack of physiological relevance. The discrepancy between the in vitro and in vivo systems has been a bottleneck in drug development process and biological sciences. The recent progress in microtechnology has enabled\nmanipulation of cellular environment at a physiologically relevant length scale, which has led to the development of novel in vitro organ systems, often termed ‘organ-on-a-chip’ systems. By mimicking the cellular environment of in vivo tissues, various organ-on-a-chip systems have been reported to reproduce\ntarget organ functions better than conventional in vitro model systems. Ultimately, these organ-on-a-chip systems will converge into multi-organ ‘body-on-a-chip’ systems composed of functional tissues that reproduce the dynamics of the whole-body response. Such microscale in vitro systems will open up new\npossibilities in medical science and in the pharmaceutical industry.",
+            "title": "Microfabricated mammalian organ systems and their integration into models of whole animals and humans",
+            "__CreatedOn__": 1362402337348,
+            "fileId": "51349c1b6fa68a196e000235",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"72\",\"size\":753179},\"files\":[{\"md5\":\"e76bbaf3c42797d4db2589d7a7fdee9c\",\"metadata\":{\"filename\":\"Lab on a chip.pdf\"},\"uploadDate\":\"2013-03-04T13:05:36.829Z\",\"chunkSize\":262144,\"length\":753179,\"contentType\":\"application/pdf\",\"filename\":\"Lab on a chip.pdf\",\"_id\":\"51349c1b6fa68a196e000235\"}],\"dateAdded\":\"2013-03-04T13:05:31.834Z\"}",
+            "active": true,
+            "fileName": "Lab on a chip.pdf",
+            "nodeType": "kn_Post",
+            "id": 82,
+            "user": {
+                "id": 72,
+                "KN_ID": "49ef71f3-c90c-4f54-9076-8455d3eff165",
+                "email": "anitabiot07@gmail.com",
+                "firstName": "anita",
+                "lastName": "dahiya",
+                "displayName": "anita dahiya"
+            }
+        },
+        "connection": {
+            "KN_ID": "d0d8d35c-571a-4ec8-b72a-43e52c594cf3",
+            "__CreatedOn__": 1362402339012,
+            "title": "is a detailed review about organs on a chip",
+            "connectionType": "is a recommended reading of",
+            "bodyText": "This is a very recent article (2013) which discuss a variety of in vitro microscale tissue models, and describe how these single tissue models can be integrated into multi-tissue devices, often termed ‘body-on-a-chip’ or ‘human-on-a-chip’ devices. One of the most important advantages of microtechnology in terms of body-on-a-chip devices is that the tissue chambers can be connected by a set of microfluidic channels mimicking blood vessels. Testing new drugs for toxic side effects or activated compounds as a result of liver metabolism is one of the most important considerations in drug development. Body-on-chip cell culture platforms can simulate tissue-tissue interactions\nin a more physiologically realistic manner, improving the efficiency of drug development process.",
+            "active": true,
+            "toNodeId": 82,
+            "fromNodeId": 15,
+            "nodeType": "kn_Edge",
+            "user": {
+                "id": 72,
+                "KN_ID": "49ef71f3-c90c-4f54-9076-8455d3eff165",
+                "email": "anitabiot07@gmail.com",
+                "firstName": "anita",
+                "lastName": "dahiya",
+                "displayName": "anita dahiya"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "tight control of gene expression -tetracyclin.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"135\",\"size\":1303236},\"files\":[{\"md5\":\"28763f4b041cb7bcd3ec21fa26d230b1\",\"metadata\":{\"filename\":\"tight control of gene expression -tetracyclin.pdf\"},\"aliases\":null,\"uploadDate\":\"2013-03-06T22:32:47.335Z\",\"chunkSize\":262144,\"length\":1303236,\"contentType\":\"\\\"application/pdf\\\"\",\"filename\":\"tight control of gene expression -tetracyclin.pdf\",\"_id\":\"5137c40987eec11d11000001\"}],\"dateAdded\":\"2013-03-06T22:35:32.671Z\"}",
+            "fileId": "5137c40987eec11d11000001",
+            "url": "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC49329/",
+            "active": true,
+            "bodyText": "Abstract\nControl elements of the tetracycline-resistance operon encoded in Tn10 of Escherichia coli have been utilized to establish a highly efficient regulatory system in mammalian cells. By fusing the tet repressor with the activating domain of virion protein 16 of herpes simplex virus, a tetracycline-controlled transactivator (tTA) was generated that is constitutively expressed in HeLa cells. This transactivator stimulates transcription from a minimal promoter sequence derived from the human cytomegalovirus promoter IE combined with tet operator sequences. Upon integration of a luciferase gene controlled by a tTA-dependent promoter into a tTA-producing HeLa cell line, high levels of luciferase expression were monitored. These activities are sensitive to tetracycline. Depending on the concentration of the antibiotic in the culture medium (0-1 μg/ml), the luciferase activity can be regulated over up to five orders of magnitude. Thus, the system not only allows differential control of the activity of an individual gene in mammalian cells but also is suitable for creation of 'on/off' situations for such genes in a reversible way.",
+            "title": "Tight control of gene expression in mammalian cells by tetracycline-responsive promoters",
+            "KN_ID": "a65a0b53-813b-4f1c-962f-cd9cdd5e0ce2",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362609339118,
+            "id": 142,
+            "user": {
+                "id": 135,
+                "KN_ID": "592114d1-3d01-4c20-ada5-fa48d5672e78",
+                "email": "lini_kiwi@hotmail.com",
+                "firstName": "Lyndsey",
+                "lastName": "Kirwan",
+                "dateOfBirth": "1988-02-21T23:00:00.000Z",
+                "displayName": "Lyndsey Kirwan"
+            }
+        },
+        "connection": {
+            "KN_ID": "fd282bc4-c7af-4fcc-9a26-27f130b42de6",
+            "bodyText": "This paper is as old as some of you in the class...\nIt describes one of the first controls over mammalian gene expression by a small molecule (tetracycline).\nThe mammalian cells they used were HeLa cells. \nThe system they used was the tetracycline transactivator protein (tTA). They combined tetR with the C-terminal domain of VP16 from HSV.\nThe expression of the tTA-dependent promoter-controlled gene, luciferase, is repressed by tetracycline.",
+            "title": "early example of synthetic biology in mammalian cells",
+            "__CreatedOn__": 1362609341178,
+            "toNodeId": 142,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 135,
+                "KN_ID": "592114d1-3d01-4c20-ada5-fa48d5672e78",
+                "email": "lini_kiwi@hotmail.com",
+                "firstName": "Lyndsey",
+                "lastName": "Kirwan",
+                "dateOfBirth": "1988-02-21T23:00:00.000Z",
+                "displayName": "Lyndsey Kirwan"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    },
+    {
+        "article": {
+            "fileName": "Controlling transgene expression in subcutaneous.pdf",
+            "fileData": "{\"__v\":0,\"meta\":{\"uploaderId\":\"19\",\"size\":1011191},\"files\":[{\"md5\":\"db83bf456bfa36e8c26d975ef5e33427\",\"metadata\":{\"filename\":\"Controlling transgene expression in subcutaneous.pdf\"},\"uploadDate\":\"2013-03-04T14:19:18.358Z\",\"chunkSize\":262144,\"length\":1011191,\"contentType\":\"application/x-pdf\",\"filename\":\"Controlling transgene expression in subcutaneous.pdf\",\"_id\":\"5134ad613872aab452000002\"}],\"dateAdded\":\"2013-03-04T14:19:13.446Z\"}",
+            "fileId": "5134ad613872aab452000002",
+            "url": "http://www.pnas.org/content/106/26/10638.long",
+            "active": true,
+            "bodyText": "Adjustable control of therapeutic transgenes in engineered cell implants after transdermal and topical delivery of nontoxic trigger molecules would increase convenience, patient compliance, and elimination of hepatic first-pass effect in future therapies. Pseudomonas putida DOT-T1E has evolved the flavonoid-triggered TtgR operon, which controls expression of a multisubstrate-specific efflux pump (TtgABC) to resist plant-derived defense metabolites in its rhizosphere habitat. Taking advantage of the TtgR operon, we have engineered a hybrid P. putida–mammalian genetic unit responsive to phloretin. This flavonoid is contained in apples, and, as such, or as dietary supplement, regularly consumed by humans. The engineered mammalian phloretin-adjustable control element (PEACE) enabled adjustable and reversible transgene expression in different mammalian cell lines and primary cells. Due to the short half-life of phloretin in culture, PEACE could also be used to program expression of difficult-to-produce protein therapeutics during standard bioreactor operation. When formulated in skin lotions and applied to the skin of mice harboring transgenic cell implants, phloretin was able to fine-tune target genes and adjust heterologous protein levels in the bloodstream of treated mice. PEACE-controlled target gene expression could foster advances in biopharmaceutical manufacturing as well as gene- and cell-based therapies.",
+            "title": "Controlling transgene expression in subcutaneous implants using a skin lotion containing the apple metabolite phloretin",
+            "KN_ID": "c1b9be30-7b98-482d-a705-40d9bd055730",
+            "nodeType": "kn_Post",
+            "__CreatedOn__": 1362406758671,
+            "id": 80,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "connection": {
+            "KN_ID": "4fbc94d1-2d46-4f0f-9314-b64de6ff0839",
+            "title": "Controlling gene therapy locally with a skin lotion",
+            "__CreatedOn__": 1362406760649,
+            "toNodeId": 80,
+            "fromNodeId": 15,
+            "connectionType": "is an example of",
+            "nodeType": "kn_Edge",
+            "active": true,
+            "user": {
+                "id": 19,
+                "KN_ID": "e59da2bb-2a1f-48ae-8440-d7716fa88baa",
+                "email": "vincent.libis@live.fr",
+                "firstName": "Vincent",
+                "lastName": "Libis",
+                "dateOfBirth": "1989-09-18T22:00:00.000Z",
+                "displayName": "Vincent Libis"
+            }
+        },
+        "commentCount": 0,
+        "edgeCount": 0
+    }
+]}
