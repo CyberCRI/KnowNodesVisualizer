@@ -1,27 +1,32 @@
-var Renderer = function(canvas){
-    var canvas = $(canvas).get(0);
+var Renderer = function(elt){
+    var dom = $(elt);
+    var canvas = dom.get(0);
     var ctx = canvas.getContext("2d");
-    var particleSystem;
-    var shape = [[26,15],[0,30],[-26,15],[-26,-15],[0,-30],[26,-15]];
+    var sys = null;
+
+    var hovered = null;
+    var nearest = null;
+    var _mouseP = null;
+
+    var hexagonShape = [[26,15],[0,30],[-26,15],[-26,-15],[0,-30],[26,-15]];
 
     var that = {
         init:function(system){
-            //
-            // the particle system will call the init function once, right before the
-            // first frame is to be drawn. it's a good place to set up the canvas and
-            // to pass the canvas size to the particle system
-            //
-            // save a reference to the particle system for use in the .redraw() loop
-            particleSystem = system
+            sys = system;
 
-            // inform the system of the screen dimensions so it can map coords for us.
-            // if the canvas is ever resized, screenSize should be called again with
-            // the new dimensions
-            particleSystem.screenSize(canvas.width, canvas.height)
-            particleSystem.screenPadding(80) // leave an extra 80px of whitespace per side
+            that.resize();
 
             // set up some event handlers to allow for node-dragging
-            that.initMouseHandling()
+            that.initMouseHandling();
+        },
+
+        resize:function(){
+            var body = $("body");
+            canvas.width = body.width();
+            canvas.height = body.height();
+            sys.screenSize(canvas.width, canvas.height);
+            sys.screenPadding(80); // leave an extra 80px of whitespace per side
+            that.redraw();
         },
 
         redraw:function(){
@@ -34,10 +39,10 @@ var Renderer = function(canvas){
             // which allow you to step through the actual node objects but also pass an
             // x,y point in the screen's coordinate system
             //
-            ctx.fillStyle = "black"
-            ctx.fillRect(0,0, canvas.width, canvas.height)
+            ctx.fillStyle = "black";
+            ctx.fillRect(0,0, canvas.width, canvas.height);
 
-            particleSystem.eachEdge(function(edge, pt1, pt2){
+            sys.eachEdge(function(edge, pt1, pt2){
                 // edge: {source:Node, target:Node, length:#, data:{}}
                 // pt1:  {x:#, y:#}  source position in screen coords
                 // pt2:  {x:#, y:#}  target position in screen coords
@@ -49,9 +54,9 @@ var Renderer = function(canvas){
                 ctx.moveTo(pt1.x, pt1.y);
                 ctx.lineTo(pt2.x, pt2.y);
                 ctx.stroke();
-            })
+            });
 
-            particleSystem.eachNode(function(node, pt){
+            sys.eachNode(function(node, pt){
                 // node: {mass:#, p:{x,y}, name:"", data:{}}
                 // pt:   {x:#, y:#}  node position in screen coords
 
@@ -59,10 +64,13 @@ var Renderer = function(canvas){
                 ctx.beginPath();
                 ctx.strokeStyle = "white";
                 ctx.lineWidth = 5;
-                ctx.fillStyle= "black";
-                ctx.moveTo(shape[0][0] + pt.x, shape[0][1] + pt.y);
-                for(var i = 1; i < shape.length; i++)
-                    ctx.lineTo(shape[i][0] + pt.x, shape[i][1] + pt.y);
+                ctx.fillStyle = "black";
+                if(hovered !== null && hovered === node)
+                    ctx.fillStyle = "blue";
+                //Begin drawing
+                ctx.moveTo(hexagonShape[0][0] + pt.x, hexagonShape[0][1] + pt.y);
+                for(var i = 1; i < hexagonShape.length; i++)
+                    ctx.lineTo(hexagonShape[i][0] + pt.x, hexagonShape[i][1] + pt.y);
                 ctx.closePath();
                 ctx.fill();
                 ctx.stroke();
@@ -71,85 +79,73 @@ var Renderer = function(canvas){
                 ctx.fillStyle = "white";
                 ctx.font = "bold 12px Roboto";
                 ctx.fillText(node.data.title, pt.x + 30, pt.y);
-            })
+            });
         },
 
         initMouseHandling:function(){
-            // no-nonsense drag and drop (thanks springy.js)
+            hovered = null;
+            nearest = null;
             var dragged = null;
+            var oldmass = 1;
 
-            // set up a handler object that will initially listen for mousedowns then
-            // for moves and mouseups while dragging
             var handler = {
+                moved:function(e){
+                    var pos = $(canvas).offset();
+                    _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
+                    nearest = sys.nearest(_mouseP);
+
+                    //In case no node was found
+                    if(nearest && !nearest.node) return false;
+
+                    //Find if nearest node is near enough
+                    if(nearest && nearest.node !== hovered && nearest.distance <= 30){
+                        console.log("Change nearest");
+                        hovered = nearest.node;
+                        that.redraw();
+                    }
+                    else if(hovered !== null && nearest.distance > 30){
+                        console.log("Nulled nearest");
+                        hovered = null;
+                        that.redraw();
+                    }
+
+                    return false;
+                },
+
                 clicked:function(e){
-                    /*
-                    var pos = $(canvas).offset();
-                    _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
-                    dragged = particleSystem.nearest(_mouseP);
 
-                    if (dragged && dragged.node !== null){
-                        // while we're dragging, don't let physics move the node
-                        dragged.node.fixed = true
-                    }
-
-                    $(canvas).bind('mousemove', handler.dragged)
-                    $(window).bind('mouseup', handler.dropped)
-                    */
-                    return false
                 },
 
-                dragged:function(e){
-                    /*
-                    var pos = $(canvas).offset();
-                    var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
+                dragged:function(e){},
 
-                    if (dragged && dragged.node !== null){
-                        var p = particleSystem.fromScreen(s)
-                        dragged.node.p = p
-                    }
-                    */
-                    return false
-                },
-
-                dropped:function(e){
-                    /*
-                    if (dragged===null || dragged.node===undefined) return
-                    if (dragged.node !== null) dragged.node.fixed = false
-                    dragged.node.tempMass = 1000
-                    dragged = null
-                    $(canvas).unbind('mousemove', handler.dragged)
-                    $(window).unbind('mouseup', handler.dropped)
-                    _mouseP = null
-                    */
-                    return false
-                }
-            }
+                dropped:function(e){}
+            };
 
             // start listening
             $(canvas).mousedown(handler.clicked);
-
+            $(canvas).mousemove(handler.moved);
         }
 
-    }
+    };
 
     return that;
-}
+};
 
 $(document).ready(function(){
-    var sys = arbor.ParticleSystem(1000, 600, 0.5) // create the system with sensible repulsion/stiffness/friction
-    sys.parameters({gravity:true}) // use center-gravity to make the graph settle nicely (ymmv)
-    sys.renderer = Renderer("#viewport") // our newly created renderer will have its .init() method called shortly by sys...
+    var sys = arbor.ParticleSystem(1000, 600, 0.5); // create the system with sensible repulsion/stiffness/friction
+    sys.parameters({gravity:true}); // use center-gravity to make the graph settle nicely (ymmv)
+    sys.renderer = Renderer("#viewport"); // our newly created renderer will have its .init() method called shortly by sys...
 
     //Central node
-
     $.getJSON("./data/originnode.json", function(data){
         sys.addNode('centerNode', data);
     });
 
+    //Children nodes
     $.getJSON("./data/targetnodes.json", function(data){
-        $.each(data.success, function(i, v){
-            sys.addNode(i, v.article);
-            sys.addEdge('centerNode', i, v.connection);
-        });
+        for(var i = 0; i < 6; i++){
+            sys.addNode(i, data.success[i].article);
+            sys.addEdge('centerNode', i, data.success[i].connection);
+        }
     });
 });
