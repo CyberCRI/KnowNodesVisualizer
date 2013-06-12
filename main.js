@@ -11,6 +11,7 @@ var Renderer = function(canvas){
     var that = {
 
         jsonData: null,
+        layerCount: 0,
 
         loadJson:function(myUrl) {
             var json = null;
@@ -52,44 +53,43 @@ var Renderer = function(canvas){
         initData: function(){
             console.log("initData");
 
-            /*
-            //Central node
-            $.getJSON("./data/originnode.json", function(data){
-                data.alpha = 1;
-                var node = particleSystem.addNode('centerNode', data);
-            });
-            $.getJSON("./data/targetnodes.json", function(data){
-                that.jsonData = data;
-            });
-            */
-
             var data = that.loadJson("./data/originnode.json");
             data.alpha = 1;
             particleSystem.addNode('centerNode', data);
+
             that.jsonData = that.loadJson("./data/targetnodes.json");
+            for ( var i=0; i < that.jsonData.success.length; i++){
+                that.jsonData.success[i].article.layer = Math.floor(i / NODES_PER_LAYER);
+            }
+            that.layerCount = Math.ceil(that.jsonData.success.length / NODES_PER_LAYER);
         },
 
         updateData:function(){
             console.log("updateData");
             $.each(particleSystem.getEdgesFrom('centerNode'), function(i, v){
-                particleSystem.pruneNode(v.target.name);
+                if(v.data.layer !== that.layer) {
+                    particleSystem.tweenNode(v.target, 1, {alpha: 0});
+                }
             });
             that.displayLayer(that.layer);
         },
 
         displayLayer: function(layer){
             console.log("addLayer("+layer+")");
-            console.log("jsonData="+that.jsonData);
             for ( var i=layer*NODES_PER_LAYER; i < (layer+1)*NODES_PER_LAYER && i < that.jsonData.success.length; i++){
-                particleSystem.addNode(i, that.jsonData.success[i].article);
+                var newNode = particleSystem.addNode(i, that.jsonData.success[i].article);
                 particleSystem.addEdge('centerNode', i, that.jsonData.success[i].connection);
+                that.jsonData.success[i].article.alpha = 0.01;
+                particleSystem.tweenNode(newNode, 0.5, {alpha: 1});
             }
         },
 
         onLayerChange:function(layer){
-            console.log("onLayerChange");
-            that.layer = layer; //(that.layer + 1) % 10;
-            that.updateData();
+            console.log("onLayerChange("+layer+"): old layer "+that.layer);
+            if(that.layer !== layer) {
+                that.layer = layer;
+                that.updateData();
+            }
         },
 
         redraw:function(){
@@ -128,21 +128,13 @@ var Renderer = function(canvas){
                 // node: {mass:#, p:{x,y}, name:"", data:{}}
                 // pt:   {x:#, y:#}  node position in screen coords
 
-                /*
-                node.data.alpha = 0;
-                if(node.data.layer === that.layer || node.name === 'centerNode') {
-                    node.data.alpha = 1;
-                } else {
-                    $(this).hide();
+                if (node.data.alpha === 0){
+                    particleSystem.pruneNode(node);
                     return
-                }
-                */
-                node.data.alpha = 1;
+                };
 
                 //Draw Hexagon centered at pt
-                ctx.beginPath({alpha: 0});
-
-                ctx.alpha = 0;
+                ctx.beginPath();
                 ctx.strokeStyle = "rgba(255,255,255, "+node.data.alpha+")";
                 ctx.lineWidth = 5;
                 var fillAlpha = 1;
@@ -158,8 +150,7 @@ var Renderer = function(canvas){
                 //Print text next to it
                 ctx.fillStyle = "rgba(255,255,255, "+node.data.alpha+")";
                 ctx.font = "bold 12px Roboto";
-                //ctx.fillText(node.data.title, pt.x + 30, pt.y);
-                ctx.fillText(node.name, pt.x + 30, pt.y);
+                ctx.fillText(node.data.title, pt.x + 30, pt.y);
                 
             })
         },
@@ -185,9 +176,8 @@ var Renderer = function(canvas){
                     $(canvas).bind('mousemove', handler.dragged)
                     $(window).bind('mouseup', handler.dropped)
                     */
-                    var randomLayer = Math.floor(Math.random()*4);
-                    //$(that).trigger({type:'layer', layer: randomLayer, dt:'fast'});
-                    $(that).trigger({type:'layer', layer: randomLayer, dt:'fast'});
+                    var randomLayer = Math.floor(Math.random()*that.layerCount);
+                    $(that).trigger({type:'layer', layer: randomLayer});
                     return false
                 },
 
@@ -259,7 +249,5 @@ $(document).ready(function(){
     $(sys.renderer).bind('layer', function(e){
         sys.renderer.onLayerChange(e.layer);
     })
-
-    //sys.renderer.switchLayer({layer: 1, dt: 'fast'});
 
 });
