@@ -51,7 +51,7 @@ var Renderer = function(canvas){
         },
 
         initData: function(){
-            console.log("initData");
+            //console.log("initData");
 
             var data = that.loadJson("./data/originnode.json");
             data.alpha = 1;
@@ -65,7 +65,7 @@ var Renderer = function(canvas){
         },
 
         updateData:function(){
-            console.log("updateData");
+            //console.log("updateData");
             $.each(particleSystem.getEdgesFrom('centerNode'), function(i, v){
                 if(v.data.layer !== that.layer) {
                     particleSystem.tweenNode(v.target, 1, {alpha: 0});
@@ -75,7 +75,7 @@ var Renderer = function(canvas){
         },
 
         displayLayer: function(layer){
-            console.log("addLayer("+layer+")");
+            //console.log("addLayer("+layer+")");
             for ( var i=layer*NODES_PER_LAYER; i < (layer+1)*NODES_PER_LAYER && i < that.jsonData.success.length; i++){
                 var newNode = particleSystem.addNode(i, that.jsonData.success[i].article);
                 particleSystem.addEdge('centerNode', i, that.jsonData.success[i].connection);
@@ -85,9 +85,9 @@ var Renderer = function(canvas){
         },
 
         onLayerChange:function(layer){
-            console.log("onLayerChange("+layer+"): old layer "+that.layer);
+            //console.log("onLayerChange("+layer+"): old layer "+that.layer);
             if(that.layer !== layer) {
-                console.log("apply changes")
+                //console.log("apply changes")
                 that.layer = layer;
                 that.updateData();
             }
@@ -218,10 +218,10 @@ var Renderer = function(canvas){
                         || ((diff > 0) && (st > 250)) //270 - 240 = +30
                         || ((diff < 0) && (st < 0)) //-70 - -40 = -30
                         ){
-                        console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", abort");
+                        //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", abort");
                         return
                     }
-                    console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", apply");
+                    //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", apply");
 
                     if (st > handler.lastScrollTop){
                         newLayer = Math.max(that.layer - 1, 0);
