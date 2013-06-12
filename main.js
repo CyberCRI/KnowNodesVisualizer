@@ -1,6 +1,7 @@
-var Renderer = function(elt){
-    var dom = $(elt);
-    var canvas = dom.get(0);
+var NODES_PER_LAYER = 6;
+
+var Renderer = function(canvas){
+    var canvas = $(canvas).get(0);
     var ctx = canvas.getContext("2d");
     var sys = null;
 
@@ -11,13 +12,36 @@ var Renderer = function(elt){
     var hexagonShape = [[26,15],[0,30],[-26,15],[-26,-15],[0,-30],[26,-15]];
 
     var that = {
+
+        jsonData: null,
+        layerCount: 0,
+
+        loadJson:function(myUrl) {
+            var json = null;
+            $.ajax({
+                'async': false,
+                'global': false,
+                'url': myUrl,
+                'dataType': "json",
+                'success': function (data) {
+                    json = data;
+                }
+            });
+            return json;
+        },
+
         init:function(system){
             sys = system;
 
             that.resize();
 
             // set up some event handlers to allow for node-dragging
-            that.initMouseHandling();
+            that.initMouseHandling()
+            that.initMouseHandling()
+
+            that.initLayers()
+            that.initData();
+            that.updateData();
         },
 
         resize:function(){
@@ -27,6 +51,49 @@ var Renderer = function(elt){
             sys.screenSize(canvas.width, canvas.height);
             sys.screenPadding(80); // leave an extra 80px of whitespace per side
             that.redraw();
+	},
+
+        initData: function(){
+            //console.log("initData");
+
+            var data = that.loadJson("./data/originnode.json");
+            data.alpha = 1;
+            sys.addNode('centerNode', data);
+
+            that.jsonData = that.loadJson("./data/targetnodes.json");
+            for ( var i=0; i < that.jsonData.success.length; i++){
+                that.jsonData.success[i].article.layer = Math.floor(i / NODES_PER_LAYER);
+            }
+            that.layerCount = Math.ceil(that.jsonData.success.length / NODES_PER_LAYER);
+        },
+
+        updateData:function(){
+            //console.log("updateData");
+            $.each(sys.getEdgesFrom('centerNode'), function(i, v){
+                if(v.data.layer !== that.layer) {
+                    sys.tweenNode(v.target, 1, {alpha: 0});
+                }
+            });
+            that.displayLayer(that.layer);
+        },
+
+        displayLayer: function(layer){
+            //console.log("addLayer("+layer+")");
+            for ( var i=layer*NODES_PER_LAYER; i < (layer+1)*NODES_PER_LAYER && i < that.jsonData.success.length; i++){
+                var newNode = sys.addNode(i, that.jsonData.success[i].article);
+                sys.addEdge('centerNode', i, that.jsonData.success[i].connection);
+                that.jsonData.success[i].article.alpha = 0.01;
+                sys.tweenNode(newNode, 0.5, {alpha: 1});
+            }
+        },
+
+        onLayerChange:function(layer){
+            //console.log("onLayerChange("+layer+"): old layer "+that.layer);
+            if(that.layer !== layer) {
+                //console.log("apply changes")
+                that.layer = layer;
+                that.updateData();
+            }
         },
 
         redraw:function(){
@@ -47,8 +114,13 @@ var Renderer = function(elt){
                 // pt1:  {x:#, y:#}  source position in screen coords
                 // pt2:  {x:#, y:#}  target position in screen coords
 
+                var edgeAlpha = edge.source.data.alpha;
+                if(edge.target.data.alpha < edgeAlpha) {edgeAlpha = edge.target.data.alpha;}
+
+                if (edgeAlpha === 0) return
+
                 // draw a line from pt1 to pt2
-                ctx.strokeStyle = "rgba(255,255,255, .8)";
+                ctx.strokeStyle = "rgba(255,255,255, "+edgeAlpha+")";
                 ctx.lineWidth = 2;
                 ctx.beginPath();
                 ctx.moveTo(pt1.x, pt1.y);
@@ -60,13 +132,20 @@ var Renderer = function(elt){
                 // node: {mass:#, p:{x,y}, name:"", data:{}}
                 // pt:   {x:#, y:#}  node position in screen coords
 
+                if (node.data.alpha === 0){
+                    sys.pruneNode(node);
+                    return
+                };
+
                 //Draw Hexagon centered at pt
                 ctx.beginPath();
-                ctx.strokeStyle = "white";
+                ctx.strokeStyle = "rgba(255,255,255, "+node.data.alpha+")";
                 ctx.lineWidth = 5;
-                ctx.fillStyle = "black";
+                var fillAlpha = 1;
+                if (node.data.alpha === 0) {fillAlpha = 0;}
+                ctx.fillStyle= "rgba(0,0,0, "+fillAlpha+")";
                 if(hovered !== null && hovered === node)
-                    ctx.fillStyle = "blue";
+                    ctx.fillStyle = "rgba(0,0,255, "+fillAlpha+")";
                 //Begin drawing
                 ctx.moveTo(hexagonShape[0][0] + pt.x, hexagonShape[0][1] + pt.y);
                 for(var i = 1; i < hexagonShape.length; i++)
@@ -76,7 +155,7 @@ var Renderer = function(elt){
                 ctx.stroke();
 
                 //Print text next to it
-                ctx.fillStyle = "white";
+                ctx.fillStyle = "rgba(255,255,255, "+node.data.alpha+")";
                 ctx.font = "bold 12px Roboto";
                 ctx.fillText(node.data.title, pt.x + 30, pt.y);
             });
@@ -115,15 +194,47 @@ var Renderer = function(elt){
                 clicked:function(e){
 
                 },
-
                 dragged:function(e){},
+                dropped:function(e){},
 
-                dropped:function(e){}
-            };
+                lastScrollTop: 0,
+                scrolled:function(e){
+                    var newLayer = 0;
+                    var st = $(this).scrollTop();
+                    //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop);
+                    var diff = handler.lastScrollTop - st;
+                    var absDiff = Math.abs(diff);
+                    if((absDiff < 20 && st < 20 && st >= -20)
+                        || (absDiff < 10 && (st >= 20 || st <= 20) )
+                        || ((diff > 0) && (st > 250)) //270 - 240 = +30
+                        || ((diff < 0) && (st < 0)) //-70 - -40 = -30
+                        ){
+                        //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", abort");
+                        return
+                    }
+                    //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", apply");
+
+                    if (st > handler.lastScrollTop){
+                        newLayer = Math.max(that.layer - 1, 0);
+                    } else {
+                        newLayer = Math.min(that.layer + 1,  that.layerCount-1);
+                    }
+                    handler.lastScrollTop = st;
+                    $(that).trigger({type:'layer', layer: newLayer});
+                    return false;
+                }
+            }
 
             // start listening
             $(canvas).mousedown(handler.clicked);
             $(canvas).mousemove(handler.moved);
+            $(window).scroll(handler.scrolled);
+
+        },
+
+        layer: 0,
+        initLayers: function(){
+            layer = 0;
         }
 
     };
@@ -131,21 +242,15 @@ var Renderer = function(elt){
     return that;
 };
 
+
+
 $(document).ready(function(){
     var sys = arbor.ParticleSystem(1000, 600, 0.5); // create the system with sensible repulsion/stiffness/friction
     sys.parameters({gravity:true}); // use center-gravity to make the graph settle nicely (ymmv)
     sys.renderer = Renderer("#viewport"); // our newly created renderer will have its .init() method called shortly by sys...
 
-    //Central node
-    $.getJSON("./data/originnode.json", function(data){
-        sys.addNode('centerNode', data);
-    });
+    $(sys.renderer).bind('layer', function(e){
+        sys.renderer.onLayerChange(e.layer);
+    })
 
-    //Children nodes
-    $.getJSON("./data/targetnodes.json", function(data){
-        for(var i = 0; i < 6; i++){
-            sys.addNode(i, data.success[i].article);
-            sys.addEdge('centerNode', i, data.success[i].connection);
-        }
-    });
 });
