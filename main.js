@@ -9,6 +9,23 @@ var Renderer = function(canvas){
     var shape = [[26,15],[0,30],[-26,15],[-26,-15],[0,-30],[26,-15]];
 
     var that = {
+
+        jsonData: null,
+
+        loadJson:function(myUrl) {
+            var json = null;
+            $.ajax({
+                'async': false,
+                'global': false,
+                'url': myUrl,
+                'dataType': "json",
+                'success': function (data) {
+                    json = data;
+                }
+            });
+            return json;
+        },
+
         init:function(system){
             //
             // the particle system will call the init function once, right before the
@@ -27,7 +44,52 @@ var Renderer = function(canvas){
             // set up some event handlers to allow for node-dragging
             that.initMouseHandling()
 
-            //that.initLayers()
+            that.initLayers()
+            that.initData();
+            that.updateData();
+        },
+
+        initData: function(){
+            console.log("initData");
+
+            /*
+            //Central node
+            $.getJSON("./data/originnode.json", function(data){
+                data.alpha = 1;
+                var node = particleSystem.addNode('centerNode', data);
+            });
+            $.getJSON("./data/targetnodes.json", function(data){
+                that.jsonData = data;
+            });
+            */
+
+            var data = that.loadJson("./data/originnode.json");
+            data.alpha = 1;
+            particleSystem.addNode('centerNode', data);
+            that.jsonData = that.loadJson("./data/targetnodes.json");
+        },
+
+        updateData:function(){
+            console.log("updateData");
+            $.each(particleSystem.getEdgesFrom('centerNode'), function(i, v){
+                particleSystem.pruneNode(v.target.name);
+            });
+            that.displayLayer(that.layer);
+        },
+
+        displayLayer: function(layer){
+            console.log("addLayer("+layer+")");
+            console.log("jsonData="+that.jsonData);
+            for ( var i=layer*NODES_PER_LAYER; i < (layer+1)*NODES_PER_LAYER && i < that.jsonData.success.length; i++){
+                particleSystem.addNode(i, that.jsonData.success[i].article);
+                particleSystem.addEdge('centerNode', i, that.jsonData.success[i].connection);
+            }
+        },
+
+        onLayerChange:function(layer){
+            console.log("onLayerChange");
+            that.layer = layer; //(that.layer + 1) % 10;
+            that.updateData();
         },
 
         redraw:function(){
@@ -66,6 +128,17 @@ var Renderer = function(canvas){
                 // node: {mass:#, p:{x,y}, name:"", data:{}}
                 // pt:   {x:#, y:#}  node position in screen coords
 
+                /*
+                node.data.alpha = 0;
+                if(node.data.layer === that.layer || node.name === 'centerNode') {
+                    node.data.alpha = 1;
+                } else {
+                    $(this).hide();
+                    return
+                }
+                */
+                node.data.alpha = 1;
+
                 //Draw Hexagon centered at pt
                 ctx.beginPath({alpha: 0});
 
@@ -85,7 +158,8 @@ var Renderer = function(canvas){
                 //Print text next to it
                 ctx.fillStyle = "rgba(255,255,255, "+node.data.alpha+")";
                 ctx.font = "bold 12px Roboto";
-                ctx.fillText(node.data.title, pt.x + 30, pt.y);
+                //ctx.fillText(node.data.title, pt.x + 30, pt.y);
+                ctx.fillText(node.name, pt.x + 30, pt.y);
                 
             })
         },
@@ -111,7 +185,7 @@ var Renderer = function(canvas){
                     $(canvas).bind('mousemove', handler.dragged)
                     $(window).bind('mouseup', handler.dropped)
                     */
-                    var randomLayer = Math.floor(Math.random()*3);
+                    var randomLayer = Math.floor(Math.random()*4);
                     //$(that).trigger({type:'layer', layer: randomLayer, dt:'fast'});
                     $(that).trigger({type:'layer', layer: randomLayer, dt:'fast'});
                     return false
@@ -147,13 +221,13 @@ var Renderer = function(canvas){
             // start listening
             $(canvas).mousedown(handler.clicked);
 
-        }
-        /*,
+        },
 
         layer: 0,
         initLayers: function(){
             layer = 0;
-        },
+        }/*,
+
 
         switchLayer: function(e){
             if (e.layer != Math.floor(layer / NODES_PER_LAYER)){
@@ -182,34 +256,8 @@ $(document).ready(function(){
     sys.parameters({gravity:true}) // use center-gravity to make the graph settle nicely (ymmv)
     sys.renderer = Renderer("#viewport") // our newly created renderer will have its .init() method called shortly by sys...
 
-    //Central node
-
-    $.getJSON("./data/originnode.json", function(data){
-        data.alpha = 1;
-        var node = sys.addNode('centerNode', data);
-        //node.alpha = 1;
-    });
-
-    var aNode = null;
-    $.getJSON("./data/targetnodes.json", function(data){
-        //for ( var i=0; i < data.success.length; i++){
-        for ( var i=0; i < 2; i++){
-            data.success[i].article.alpha = 1;
-            aNode = sys.addNode(i, data.success[i].article);
-            sys.addEdge('centerNode', i, data.success[i].connection);
-            //aNode.alpha = 0;
-        }
-    });
-
-    var anIndex = "0";
-    //var aNode = sys.getNode(anIndex);
-    var dt = 2
-    //var newAlpha = 1 - aNode.data.alpha;
-
     $(sys.renderer).bind('layer', function(e){
-        var newAlpha = 0;//Math.random();
-        console.log("click!");
-        sys.tweenNode(aNode, dt, {title:"test", alpha: newAlpha})
+        sys.renderer.onLayerChange(e.layer);
     })
 
     //sys.renderer.switchLayer({layer: 1, dt: 'fast'});
