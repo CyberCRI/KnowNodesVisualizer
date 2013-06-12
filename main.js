@@ -87,6 +87,7 @@ var Renderer = function(canvas){
         onLayerChange:function(layer){
             console.log("onLayerChange("+layer+"): old layer "+that.layer);
             if(that.layer !== layer) {
+                console.log("apply changes")
                 that.layer = layer;
                 that.updateData();
             }
@@ -176,8 +177,6 @@ var Renderer = function(canvas){
                     $(canvas).bind('mousemove', handler.dragged)
                     $(window).bind('mouseup', handler.dropped)
                     */
-                    var randomLayer = Math.floor(Math.random()*that.layerCount);
-                    $(that).trigger({type:'layer', layer: randomLayer});
                     return false
                 },
 
@@ -205,11 +204,39 @@ var Renderer = function(canvas){
                     _mouseP = null
                     */
                     return false
+                },
+
+                lastScrollTop: 0,
+                scrolled:function(e){
+                    var newLayer = 0;
+                    var st = $(this).scrollTop();
+                    //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop);
+                    var diff = handler.lastScrollTop - st;
+                    var absDiff = Math.abs(diff);
+                    if((absDiff < 20 && st < 20 && st >= -20)
+                        || (absDiff < 10 && (st >= 20 || st <= 20) )
+                        || ((diff > 0) && (st > 250)) //270 - 240 = +30
+                        || ((diff < 0) && (st < 0)) //-70 - -40 = -30
+                        ){
+                        console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", abort");
+                        return
+                    }
+                    console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", apply");
+
+                    if (st > handler.lastScrollTop){
+                        newLayer = Math.max(that.layer - 1, 0);
+                    } else {
+                        newLayer = Math.min(that.layer + 1,  that.layerCount-1);
+                    }
+                    handler.lastScrollTop = st;
+                    $(that).trigger({type:'layer', layer: newLayer});
+                    return false;
                 }
             }
 
             // start listening
             $(canvas).mousedown(handler.clicked);
+            $(window).scroll(handler.scrolled);
 
         },
 
