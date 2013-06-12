@@ -1,4 +1,7 @@
 var Renderer = function(elt){
+    var hoverRadius = 30;
+    var hexagonShape = [[26,15],[0,30],[-26,15],[-26,-15],[0,-30],[26,-15]];
+
     var dom = $(elt);
     var canvas = dom.get(0);
     var ctx = canvas.getContext("2d");
@@ -6,9 +9,26 @@ var Renderer = function(elt){
 
     var hovered = null;
     var nearest = null;
-    var _mouseP = null;
+    var mousePosition = null;
 
-    var hexagonShape = [[26,15],[0,30],[-26,15],[-26,-15],[0,-30],[26,-15]];
+    var nearestDifferentThanHovered = function(){
+        return (nearest && nearest.node !== hovered);
+    };
+
+    var nearestIsCloseEnough = function(){
+        return nearest.distance <= hoverRadius;
+    };
+
+    var updateHovered = function(){
+        if(nearestDifferentThanHovered() && nearestIsCloseEnough()){
+            hovered = nearest.node;
+            that.redraw();
+        }
+        else if(hovered !== null && !nearestIsCloseEnough()){
+            hovered = null;
+            that.redraw();
+        }
+    };
 
     var that = {
         init:function(system){
@@ -21,7 +41,8 @@ var Renderer = function(elt){
         },
 
         resize:function(){
-            var body = $("body");
+            console.log("resized");
+            var body = $(".ui-layout-center");
             canvas.width = body.width();
             canvas.height = body.height();
             sys.screenSize(canvas.width, canvas.height);
@@ -86,35 +107,19 @@ var Renderer = function(elt){
             hovered = null;
             nearest = null;
             var dragged = null;
-            var oldmass = 1;
 
             var handler = {
                 moved:function(e){
                     var pos = $(canvas).offset();
-                    _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
-                    nearest = sys.nearest(_mouseP);
+                    mousePosition = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
+                    nearest = sys.nearest(mousePosition);
 
-                    //In case no node was found
-                    if(nearest && !nearest.node) return false;
-
-                    //Find if nearest node is near enough
-                    if(nearest && nearest.node !== hovered && nearest.distance <= 30){
-                        console.log("Change nearest");
-                        hovered = nearest.node;
-                        that.redraw();
-                    }
-                    else if(hovered !== null && nearest.distance > 30){
-                        console.log("Nulled nearest");
-                        hovered = null;
-                        that.redraw();
-                    }
+                    updateHovered();
 
                     return false;
                 },
 
-                clicked:function(e){
-
-                },
+                clicked:function(e){},
 
                 dragged:function(e){},
 
@@ -132,7 +137,7 @@ var Renderer = function(elt){
 };
 
 $(document).ready(function(){
-    var sys = arbor.ParticleSystem(1000, 600, 0.5); // create the system with sensible repulsion/stiffness/friction
+    sys = arbor.ParticleSystem(1000, 600, 0.5); // create the system with sensible repulsion/stiffness/friction
     sys.parameters({gravity:true}); // use center-gravity to make the graph settle nicely (ymmv)
     sys.renderer = Renderer("#viewport"); // our newly created renderer will have its .init() method called shortly by sys...
 
