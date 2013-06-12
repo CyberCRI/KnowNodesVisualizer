@@ -4,5 +4,7 @@ body, html{
     margin: 0;
 }
 
-#viewport{
+.ui-layout-pane{
+    padding: 0px;
+    margin: 0px;
 }
