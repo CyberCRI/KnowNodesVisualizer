@@ -137,7 +137,7 @@ var Renderer = function(elt){
                 var edgeAlpha = edge.source.data.alpha;
                 if(edge.target.data.alpha < edgeAlpha) {edgeAlpha = edge.target.data.alpha;}
 
-                if (edgeAlpha === 0) return
+                if (edgeAlpha === 0) return;
 
                 // draw a line from pt1 to pt2
                 ctx.strokeStyle = "rgba(255,255,255, "+edgeAlpha+")";
@@ -155,7 +155,7 @@ var Renderer = function(elt){
                 if (node.data.alpha === 0){
                     sys.pruneNode(node);
                     return
-                };
+                }
 
                 //Draw Hexagon centered at pt
                 ctx.beginPath();
@@ -185,6 +185,7 @@ var Renderer = function(elt){
             hovered = null;
             nearest = null;
             var dragged = null;
+            scrollAvailable = true;
 
             var handler = {
                 moved:function(e){
@@ -197,42 +198,43 @@ var Renderer = function(elt){
                     return false;
                 },
 
-                clicked:function(e){},
+                clicked:function(e){
+                    if(hovered){
+                        PanelsHandler.layout.open('west');
+                    }
+                    else
+                        PanelsHandler.layout.close('west');
+                },
+
                 dragged:function(e){},
+
                 dropped:function(e){},
 
-                lastScrollTop: 0,
-                scrolled:function(e){
-                    var newLayer = 0;
-                    var st = $(this).scrollTop();
-                    //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop);
-                    var diff = handler.lastScrollTop - st;
-                    var absDiff = Math.abs(diff);
-                    if((absDiff < 20 && st < 20 && st >= -20)
-                        || (absDiff < 10 && (st >= 20 || st <= 20) )
-                        || ((diff > 0) && (st > 250)) //270 - 240 = +30
-                        || ((diff < 0) && (st < 0)) //-70 - -40 = -30
-                        ){
-                        //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", abort");
-                        return
-                    }
-                    //console.log("st="+st+",   lastScrollTop="+handler.lastScrollTop+", apply");
+                scrolled:function(e, delta, deltaX, deltaY){
+                    console.log("scrolled");
 
-                    if (st > handler.lastScrollTop){
-                        newLayer = Math.max(that.layer - 1, 0);
-                    } else {
-                        newLayer = Math.min(that.layer + 1,  that.layerCount-1);
+                    var newLayer = 0;
+
+                    if(deltaY !== 0){
+                        scrollAvailable = false;
+
+                        if (deltaY < 0){
+                            newLayer = Math.max(that.layer - 1, 0);
+                        } else{
+                            newLayer = Math.min(that.layer + 1,  that.layerCount - 1);
+                        }
+
+                        $(that).trigger({type:'layer', layer: newLayer});
                     }
-                    handler.lastScrollTop = st;
-                    $(that).trigger({type:'layer', layer: newLayer});
+
                     return false;
-                }
+                    }
             }
 
             // start listening
-            $(canvas).mousedown(handler.clicked);
-            $(canvas).mousemove(handler.moved);
-            $(window).scroll(handler.scrolled);
+            $('canvas').mousedown(handler.clicked);
+            $('canvas').mousemove(handler.moved);
+            $('canvas').mousewheel(handler.scrolled);
 
         },
 
@@ -245,8 +247,6 @@ var Renderer = function(elt){
 
     return that;
 };
-
-
 
 $(document).ready(function(){
     sys = arbor.ParticleSystem(1000, 600, 0.5); // create the system with sensible repulsion/stiffness/friction
