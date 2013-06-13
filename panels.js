@@ -12,29 +12,34 @@ PanelsHandler = {
     hidePanels: function(){
         //Hide both panels
 
+    },
+
+    initPanels: function(){
+        this.layout =  $("body").layout({
+            defaults: {
+                fxName: "slide",
+                fxSpeed: "slow",
+                spacing_closed: 14,
+                initClosed: true,
+                livePaneResizing: true
+            },
+
+            west: {
+                spacing_closed: 8,
+                togglerLength_closed: "100%",
+                minSize: 200
+            },
+
+            center: {
+                onresize_start: function(){},
+                onresize_end: function(){Renderer.canvas.resize();}
+            },
+
+            east: {
+                spacing_closed: 8,
+                togglerLength_closed: "100%",
+                minSize: 200
+            }
+        });
     }
 }
-
-$(document).ready(function(){
-    PanelsHandler.layout = $("body").layout({
-        defaults: {
-            fxName: "slide",
-            fxSpeed: "slow",
-            spacing_closed: 14,
-            initClosed: true,
-            livePaneResizing: true,
-            onresize_start: function(){
-            },
-            onresize: function(){sys.renderer.resize()},
-            onresize_stop: function(){}
-        }, west: {
-            spacing_closed: 8,
-            togglerLength_closed: "100%",
-            minSize: 200
-        }, east: {
-            spacing_closed: 8,
-            togglerLength_closed: "100%",
-            minSize: 200
-        }
-    });
-});
