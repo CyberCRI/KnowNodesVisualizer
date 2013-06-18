@@ -70,7 +70,7 @@ Renderer.canvas.init = function(){
 Renderer.canvas.resize = function(){
     var div = $(".ui-layout-center");
     Renderer.engine.particleSystem.screenSize(div.width(), div.height());
-    Renderer.engine.particleSystem.screenPadding(80,160,80,80);
+    Renderer.engine.particleSystem.screenPadding(80,200,80,80);
     this.stage.setSize(div.width(), div.height());
     Renderer.loop.redraw();
 };
@@ -151,13 +151,30 @@ Renderer.layers.display = function(layer){
 
 Renderer.Node = function(data){
     this.data = data;
-    this.displayGroup = new  Kinetic.Group({});
+    this.displayGroup = new  Kinetic.Group({x:-200, y:-200});
     this.displayPolygon = this.newPolygon();
-    this.displayText = this.newTextDisplay();
+    this.displayText = this.newText();
     this.node =  Renderer.engine.particleSystem.addNode(this.data.id, {node: this});
-
     this.displayPolygon.node = this;
     Renderer.nodes.layer.add(this.displayGroup);
+    this.tweenPolygonHover = new Kinetic.Tween({
+        node: this.displayPolygon,
+        duration: 1,
+        easing: Kinetic.Easings['StrongEaseOut'],
+        fillB: 200,
+        scaleX: 2,
+        scaleY: 2,
+        strokeWidth: 5
+    });
+    this.tweenTextHover = new Kinetic.Tween({
+        node: this.displayText,
+        duration: 1,
+        easing: Kinetic.Easings['StrongEaseOut'],
+        fontSize: 18,
+        x: 80,
+        y: -20,
+        width: 300,
+    });
     this.bindEvents();
 };
 Renderer.Node.prototype = {
@@ -179,10 +196,18 @@ Renderer.Node.prototype = {
         this.displayGroup.add(polygon);
         return polygon;
     },
-    newTextDisplay: function(){
-
+    newText: function(){
+        var text = new Kinetic.Text({
+            text: this.data.title,
+            fill: "white",
+            width: 120
+        });
+        text.node = this;
+        this.displayGroup.add(text);
+        text.setPosition(31, -5);
+        return text;
     },
-    refreshAndMove: function (pos){
+    moveTo: function (pos){
         this.displayGroup.setPosition(pos.x, pos.y);
     },
     bindEvents: function(){
@@ -191,26 +216,12 @@ Renderer.Node.prototype = {
         this.displayPolygon.on('click', this.mouseClick);
     },
     mouseOver: function(){
-        new Kinetic.Tween({
-            node: this,
-            duration: 1,
-            easing: Kinetic.Easings['StrongEaseOut'],
-            fillB: 200,
-            scaleX: 2,
-            scaleY: 2,
-            strokeWidth: 5
-        }).play();
+       this.node.tweenPolygonHover.play();
+       this.node.tweenTextHover.play();
     },
     mouseOut: function(){
-        new Kinetic.Tween({
-            node: this,
-            duration: 0.2,
-            easing: Kinetic.Easings['StrongEaseOut'],
-            fillB: 0,
-            scaleX: 1,
-            scaleY: 1,
-            strokeWidth: 3
-        }).play();
+        this.node.tweenPolygonHover.reverse();
+        this.node.tweenTextHover.reverse();
     },
     mouseClick: function(){
         Renderer.nodes.selected = this.node;
@@ -245,7 +256,7 @@ Renderer.Edge.prototype = {
     newLine: function(){
         var line =  new Kinetic.Line({
             points: [0,0,0,0],
-            stroke: "white",
+            stroke: "gray",
             strokeWidth: 2
         });
         line.edge = this;
@@ -256,7 +267,7 @@ Renderer.Edge.prototype = {
         this.line.on("mouseover", this.mouseOver);
         this.line.on("mouseout", this.mouseOut);
     },
-    refreshAndMoveTo: function(pos1, pos2){
+    moveTo: function(pos1, pos2){
         this.line.setAttr('points',[pos1,pos2]);
     },
     mouseOver: function(){
@@ -284,10 +295,10 @@ Renderer.loop = {}
 Renderer.loop.init = function(){};
 Renderer.loop.redraw = function(){
     Renderer.engine.particleSystem.eachEdge(function(edge, pt1, pt2){
-        edge.data.edge.refreshAndMoveTo(pt1, pt2);
+        edge.data.edge.moveTo(pt1, pt2);
     });
     Renderer.engine.particleSystem.eachNode(function(node, pt){
-        node.data.node.refreshAndMove(pt);
+        node.data.node.moveTo(pt);
     });
     Renderer.canvas.stage.draw();
 };
